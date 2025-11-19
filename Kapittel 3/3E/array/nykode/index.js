@@ -35,3 +35,35 @@ console.log('filter():', result);
 const numsReduce = [1, 2, 3, 4];
 const sum = numsReduce.reduce((accumulator, currentValue) => accumulator + currentValue);
 console.log('reduce():', sum);
+
+
+//  Array Mutator Methods
+
+//push() setter inn på slutten
+const fruits = ['banana', 'pear', 'apple'];
+fruits.push('mango');
+console.log('push()', fruits);
+
+//pop fjerner det siste elemente
+const plants = ['fern', 'palm', 'cactus']
+plants.pop();
+console.log('pop():', plants)
+ 
+//shift  fjerner det første elemente
+const games = ['soccer', 'basketball', 'hockey']
+games.shift()
+console.log('shift():', games)
+ 
+ 
+//unshift  legger til ellementet i () i staren av array
+const numbers = [1, 2, 3];
+numbers.unshift(0);
+console.log('unshift():', numbers)
+ 
+ 
+// splice  
+const months = ['Jan', 'March', 'Aprli', 'June']
+months.splice(1, 0, 'Feb')
+console.log('spilce() add:', months)
+months.splice(4, 1, 'May')
+console.log('splice () replace:', months)
