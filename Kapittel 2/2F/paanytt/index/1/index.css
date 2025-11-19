@@ -1,0 +1,107 @@
+body{
+    background-image: url(../../bilder/wallpapa.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height:fit-content;
+    background-color: rgb(78, 62, 40);
+    backdrop-filter: blur(0.2rem);
+    overflow-y: none;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    margin: auto;
+    row-gap: 1rem;
+    border-radius: 3vw;
+    padding: 2vw;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1
+}
+.cover{
+    transition: .4s;
+}
+.logo{
+    width: 100%;
+    height: auto;
+}
+.cover:hover{
+    transform: scale(1.05);
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    margin-right: 2rem;
+}
+.text{
+    line-height: 1.2;
+    background-color: rgba(192, 205, 201, 0.724);
+    padding-right: 5%;
+    padding-left: 4%;
+    border-radius: 1vh;
+    border-style: dashed;
+    width: 100%;
+    height: auto;
+    min-width: fit-content;
+      font-family: "Comic Relief", system-ui;
+}
+.yap{
+    position: relative;
+    left: 1.3rem;
+    top: 0;
+}
+.peek{
+    position: absolute;
+    transform: translate(88%, -32%) scale(0.5);
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: rgba(192, 205, 201, 0.24);
+    border-radius: 1rem;
+    max-height: min-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translate(50%);
+    max-width: min-content;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+#selected{
+    filter: grayscale(100%);
+}
+#selected:hover{
+    animation: shake 0.5s ease-in-out;
+}
+
+.pick{
+    transition: .3s;
+}
+.pick:hover:hover{
+    transform: scale(1.1);
+}
+@media(max-width: 500px){
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    .cover{
+        display: none;
+    }
+    }

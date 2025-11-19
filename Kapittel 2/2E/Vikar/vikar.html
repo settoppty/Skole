@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikart</title>
+    <link rel="stylesheet" href="vikar.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">Flex 101</div>
+        <nav class="links" aria-label="Primær">
+            <a href="#justify">Justify</a>
+            <a href="#alignitems">Align Items</a>
+            <a href="#aligncontent">Align Content</a>
+            <a href="grow">Flex (Grow/basis/shrink)</a>
+        </nav>
+    </header>
+    <main class="wrapper">
+        <!-- Seksjoner kommer hit -->
+
+            <section class="panel" id="justify">
+            <h2>Justify-content (langs <em>main axis</em>)</h2>
+            <p>Justify-content fordeler <em>ledig plass</em> mellom/rundt elementene langs hovedaksen. I flex-direction: row er dette horisontalt</p>
+
+            <h3>Flex start</h3>
+            <div class="badge"><b>Container</b>: display:flex; justify-content:flex-start; gap: .75rem</div>
+            <div class="demo-row row-start">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            <h3>Flex end</h3>
+            <div class="badge"><b>Container</b>: justify-content:flex-end;</div>
+            <div class="demo-row row-end">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            <h3>Center</h3>
+            <div class="badge"><b>Container</b>: justify-content:center;</div>
+            <div class="demo-row row-center">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            <h3>Space-between / around / evenly</h3>
+            <div class="badge"><b>Container</b>: space-between</div>
+            <div class="demo-row row-between">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            <div class="badge"><b>Container</b>: space-around</div>
+            <div class="demo-row row-around">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            <div class="badge"><b>Container</b>: space-evenly</div>
+            <div class="demo-row row-evenly">
+                <div class="box">A</div>
+                <div class="box">B</div>
+                <div class="box">C</div>
+            </div>
+            </section>
+
+            <section class="panel" id="align">
+                <h2>Align-items (langs <em>cross</em> axis)</h2>
+
+                <h2></h2>
+                <p></p>
+                <h3></h3>
+                <div class="badge"></div>
+                <div class="demo-row">
+                    <div class="box short">A</div>
+                    <div class="box taller">B</div>
+                    <div class="box tall">C</div>
+                </div>
+                <h3></h3>
+                <div class="badge"></div>
+                <div class="demo-row">
+                    <div class="box short">A</div>
+                    <div class="box taller">B</div>
+                    <div class="box tall">C</div>
+                </div>
+                <h3></h3>
+                <div class="badge"></div>
+                <div class="demo-row">
+                    <div class="box short">A</div>
+                    <div class="box taller">B</div>
+                    <div class="box tall">C</div>
+                </div>
+                <h3></h3>
+                <div class="badge"></div>
+                <div class="demo-row">
+                    <div class="box short">A</div>
+                    <div class="box taller">B</div>
+                    <div class="box tall">C</div>
+                </div>
+            </section>
+    </main>
+
+
+</body>
+</html>

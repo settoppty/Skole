@@ -1,0 +1,31 @@
+
+// variabel = navn som heviser til en spesifikk verdi elelr ting i minnet til datamaskinen. vi bruker let for å definere variabler. Vi definerer alltid variabler med camelCase. De kan ikke starte med tall.
+
+// const = variabel som ikke skal endres på. Disse skrives i STORE BOKSTAVER
+
+// strings er tekst
+
+
+OPERATORER ER VIKTIG!
+
+// boolean er når datamaskinen skjønner om en påstand er sann eller falsk. for eksempel 1 < 2 kan pc gjenkjenne er false. ? er for å se hva hvis påstanden er sann, og : hvis usann.
+
+// 0 = 0000
+// 1 = 0001
+// 2 = 0010
+// 3 = 0011
+// 4 = 0100
+// 5 = 0101
+// 6 = 0110
+// 7 = 0111
+// 8 = 1000
+// 9 = 1001
+// 10 - A = 1010
+// 11 - B = 1011
+// 12 - C = 1100
+// 13 - D = 1101
+// 14 - E = 1110
+// 15 - F = 1111
+
+
+

@@ -1,0 +1,174 @@
+body{
+    max-height:fit-content;
+    background-image: url(../../bilder/wallpapa2.jpg); 
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: rgb(78, 62, 40);
+    backdrop-filter: blur(0.2rem);
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    margin: auto;
+    row-gap: 1rem;
+    border-radius: 3vw;
+    padding: 2vw;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1
+}
+.cover{
+    transition: .4s;
+}
+.logo{
+    width: 100%;
+    height: auto;
+}
+.cover:hover{
+    transform: scale(1.05);
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    margin-right: 2rem;
+}
+.text{
+    line-height: 1.2;
+    background-color: rgba(192, 205, 201, 0.724);
+    padding-right: 5%;
+    padding-left: 4%;
+    border-radius: 1vh;
+    border-style: dashed;
+    width: 100%;
+    height: auto;
+    min-width: fit-content;
+      font-family: "Comic Relief", system-ui;
+}
+.yap{
+    position: relative;
+    left: 1.3rem;
+    top: 0;
+     font-family: "Comic Relief", system-ui;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: rgba(192, 205, 201, 0.24);
+    border-radius: 1rem;
+    max-height: min-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translate(50%);
+    max-width: min-content;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+#selected{
+    filter: grayscale(100%);
+}
+#selected:hover{
+    animation: shake 0.5s ease-in-out;
+}
+
+.pick{
+    transition: .3s;
+}
+.pick:hover:hover{
+    transform: scale(1.1);
+}
+@media(max-width: 500px){
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    .cover{
+        display: none;
+    }
+    }
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bahianita&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bahianita&family=Comic+Relief:wght@400;700&display=swap');
+
+.tools{
+    background-color: rgb(201, 24, 189);
+    border-radius: 4vh;
+    padding: 1vw;
+    margin-right: auto;
+    margin-left: auto;
+      font-family: "Bruno Ace SC", sans-serif;
+      width: 100%;
+      height: auto;
+      color: whitesmoke;
+}
+
+#yap2{
+     font-family: "Bruno Ace SC", sans-serif;
+}
+.maincontainer{
+    display: grid;
+    grid-template-areas: 
+    "grap grab"
+    "creat paint";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: min-content;
+    gap: 2rem;
+    margin: auto;
+}
+.peek{
+    position: absolute;
+    transform: translate(88%, -32%) scale(0.5);
+}
+
+.grapple{
+    grid-area: grap;
+    transition: .3s;
+}
+.grapple:hover{
+    transform: scale(1.05);
+}
+.glove{
+    grid-area: grab;
+    transition: .3s;
+}
+.glove:hover{
+    transform: scale(1.05);
+}
+.helmet{
+    grid-area: creat;
+    transition: .3s;
+}
+.helmet:hover{
+    transform: scale(1.05);
+}
+.gun{
+    grid-area: paint;
+    transition: .3s;
+}
+.gun:hover{
+    transform: scale(1.05);
+}
+.tool{
+    background-color: rgb(177, 69, 170);
+    max-width: min-content;
+    border-radius: 1vw;
+    border: solid rgb(138, 15, 200);
+}

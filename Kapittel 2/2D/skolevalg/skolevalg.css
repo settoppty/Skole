@@ -1,0 +1,57 @@
+body{
+    margin: 4vw;
+}
+
+tbody tr{
+    padding: 50px;
+}
+
+tbody > :nth-child(odd){
+   background-color: lightgray;
+}
+table{
+    text-align: center;
+    border: black solid;
+}
+
+table{
+    margin: 50px auto;
+    width: 100%
+}
+
+
+
+
+
+
+
+
+#SV{
+    color: white;
+    background-color: darkred;
+    width: calc(25%*3);
+}
+
+#AP{
+    color: white;
+    background-color: red;
+    width: calc(22%*3);
+}
+
+#FRP{
+    color: white;
+    background-color: darkblue;
+    width: calc(10%*3);
+}
+
+#H{
+    color: white;
+    background-color: blue;
+    width: calc(10%*3);
+}
+
+#V{
+    color: white;
+    background-color: forestgreen;
+    width: calc(9.6%*3);
+}

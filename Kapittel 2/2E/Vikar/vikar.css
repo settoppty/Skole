@@ -1,0 +1,82 @@
+body{
+    background-color: hsl(214, 37%, 11%);
+    color: lightblue;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; top: 0;
+    border-bottom: hsl(214, 37%, 19%) solid;
+    padding-bottom: 1vh;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: max-content;
+    margin: auto;
+}
+
+.row-start{
+    display:flex; 
+    justify-content:flex-start; 
+    gap: .75rem
+}
+
+.row-end{
+    display: flex;
+    justify-content:flex-end;
+    gap: .75rem
+}
+
+.row-center{
+    display: flex;
+    justify-content: center;
+    gap: .75rem
+}
+
+.row-between{
+    display: flex;
+    gap: .75rem;
+    justify-content: space-between;
+}
+
+.row-around{
+    display: flex;
+    justify-content: space-around;
+    gap: .75rem;
+}
+
+.row-evenly{
+    display: flex;
+    justify-content: space-evenly;
+    gap: .75rem;
+}
+
+.box{
+    border: 0.5mm  hsl(214, 37%, 50%) solid;
+    padding: 2mm;
+    border-radius: 0.9mm;
+    background-color: hsla(204, 85%, 21%, 0.507);
+}
+
+.demo-row{
+    background-color: hsla(214, 50%, 6%, 0.637);
+    padding: 3mm;
+    border-radius: 0.4cm;
+    margin: 2.5mm;
+}
+
+.badge{
+    background-color: hsl(0, 0%, 0%);
+    padding: 1.5mm;
+    border-radius: 1.5mm;
+    width: fit-content;
+}
+
+.links > a{
+   margin-right: 15mm;}

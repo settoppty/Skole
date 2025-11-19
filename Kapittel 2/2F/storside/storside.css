@@ -1,0 +1,52 @@
+body{
+    background-image: url(bilder/minesky.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}
+
+.logo{
+    margin: auto;
+
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vh;
+    
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 1.8vh 12vw;
+    max-width:min-content; /* ??*/
+}
+
+@media(max-width: 500px){
+    body{
+        rotate: 90deg;
+    }
+
+}
+
+.play{
+    background-color: gray;
+    border-color: rgb(54, 54, 54) solid;
+    margin: auto;
+    flex: 1;
+}
+.multiplayer{
+    background-color: gray;
+    border-color: rgb(54, 54, 54) solid;
+    margin: auto;
+    flex: 1;
+}
+.realm{
+    background-color: gray;
+    border-color: rgb(54, 54, 54) solid;
+    margin: auto;
+    white-space: nowrap; /* Prevents text from wrapping */
+    flex: 1;
+}

@@ -1,0 +1,46 @@
+
+
+.amundo{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#amunds{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+body{
+    margin: 25px;
+    background-image: url(https://static0.srcdn.com/wordpress/wp-content/uploads/2020/07/Fortnite-Squad-Crossplay.jpg); 
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.tekst{
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 5px;
+     font-size: larger;
+}
+
+#amundhele{
+    background-color: white;
+}
+
+.nimao{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+background-color: lightblue;
+padding: 10px;
+border-radius: 20px;
+color: darkblue;
+}
+
+#bio{
+    font-size: larger;
+}
+
+.wrapper{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}

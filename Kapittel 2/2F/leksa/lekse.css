@@ -1,0 +1,113 @@
+body{
+    background-color: black;
+}
+.maincontainer{
+    display: grid;
+    grid-template-areas:
+    "a b c d d e f"
+    "g h i j k l m"
+    "n o p p q r m"
+    "n s t t u u v";
+    grid-template-columns: 1fr 2fr 6fr 2fr 3fr 2fr 2fr ;
+    grid-template-rows: 5fr 5fr 2fr 2fr;
+    gap: 0.8rem;
+    margin-top: 15rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 550px;
+    height: 450px;
+    margin: auto;
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    
+}
+
+.griditems{
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.hvit{
+    background-color: white;
+}
+
+.gul{
+    background-color: yellow;
+}
+
+.blaa{
+    background-color: blue;
+}
+
+.rod{
+    background-color: red;
+}
+#a{
+    grid-area: a;
+}
+#b{
+    grid-area: b;
+}
+#c{
+    grid-area: c;
+}
+#d{
+    grid-area: d;
+
+}
+#e{
+    grid-area: e;
+}
+#f{
+    grid-area: f;
+}
+#g{
+    grid-area: g;
+}
+#h{
+    grid-area: h;
+}
+#i{
+    grid-area: i;
+}
+#j{
+    grid-area: j;
+}
+#k{
+    grid-area: k;
+}
+#l{
+    grid-area: l;
+}
+#m{
+    grid-area: m;
+}
+#n{
+    grid-area: n;
+}
+#o{
+    grid-area: o;
+}
+#p{
+    grid-area: p;
+
+}
+#q{
+    grid-area: q;
+}
+#r{
+    grid-area: r;
+}
+#s{
+    grid-area: s;
+}
+#t{
+    grid-area: t;
+}
+#u{
+    grid-area: u;
+}
+#v{
+    grid-area: v;
+}

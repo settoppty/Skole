@@ -1,0 +1,30 @@
+body{
+    background-color: antiquewhite;
+}
+
+
+
+table{
+    border: solid black;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+}
+
+th{
+    background-color: red;
+}
+
+tbody tr:nth-child(2n){
+    background-color: black;
+    color: whitesmoke;
+}
+
+tbody :hover{
+    font-weight: bold;
+}
+
+.max{
+    max-width: 33%;
+    /* what da fakk */
+}

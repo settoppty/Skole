@@ -1,0 +1,65 @@
+
+body{
+    background-color: deepskyblue;
+    background-image: url(/Kapittel\ 2/2F/paanytt/bilder/starry.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hub{
+    background-color: #ffffff27;
+    margin-top: 23vh;
+    padding: 3%;
+    display: grid;
+     grid-template-areas:
+     "a s d";
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9vw;
+    text-align: center;
+    font-family: "Bahianita", sans-serif;
+    font-size:x-large;
+    color: azure;
+    border-radius: 1vb;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+.cover{
+    transition: .4s;
+}
+.cover:hover{
+    transform: scale(1.1);
+}
+#en{
+    grid-area: a;
+}
+#to{
+    grid-area: s;
+}
+#tre{
+    grid-area: d;
+}
+
+
+@media(max-width: 500px){
+    .hub{
+    display: grid;
+    grid-template-areas:
+    "a"
+    "s"
+    "d";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+}
+
+@media(min-width:501px) and (max-width:938px){
+    body{
+        background-image: url(/Kapittel\ 2/2F/paanytt/bilder/starry.jpg);
+        background-repeat: repeat;
+        background-size: auto;
+    }
+}

@@ -1,0 +1,29 @@
+/*
+
+
+Attributt = 
+Class, og ID
+GI tillegsinformasjon til elementer
+
+Element = 
+
+Selektor = I CSS hvor du velger hvilke attributt man skal endre på egenskapene til
+
+Egenskap = Verdier man kan legge til attributter i selektoren.
+
+Element = et element kan ha flere attributter.
+
+Verdi =
+
+Måleenheter
+Px - antall pixler
+em - antall skriftstørrelser
+vw = prosent av view width. Prosent av skjermbredde
+vh - prosent av view height. Prosent av skjermhøyden
+
+Egenskaper
+
+Margin = Luft utafor et element; i CSS. Hvis du skriver margin: 10px;, blir det 10px med luft på alle sider. margin: 10px 20px; blir 10px luft oppe og nede, og 20px luft på sidene. margin: 10px 20px 30px; blir det 10px luft oppe, 20px luft på sidene, og 30px luft nede. margin: 10px 20px 30px 40px; blir det 10px oppe, 20px til høyre, 30px nede, 40px til venstre.
+apx(oppe/alle sider), bpx(sider/ høyre), cpx(nede), dpx(venstre)
+
+Padding = Luft inni et element. Å blåse opp elementet. Likt som margin

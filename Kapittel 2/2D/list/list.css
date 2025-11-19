@@ -1,0 +1,33 @@
+
+ol{
+    list-style-type:lower-greek;
+    list-style-position: outside;
+}
+
+ul>li{
+    list-style-type: circle;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right;: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px;
+    list-style-position: inside;
+    max-width: 175px;
+}
+
+ul>li :first-child{
+    border-top-left-radius: 3px ;
+    border-top-right-radius:  3px;
+}
+ul>li :last-child{
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+ol>li{
+        list-style-type: circle;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 10px;
+    list-style-position: inside;
+    max-width: 175px;
+}

@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+
+#Overskrift{
+    font-family: 'Indie Flower', cursive;
+    background-color: lightcyan;
+    color: chocolate;
+    padding: 10px;
+    outline: auto;
+}
+
+
+body{
+background-image: url(https://wallpapers.com/images/featured/toy-story-cloud-1g0hhs34nbf7q7ma.jpg);
+border-radius: 10px;
+margin: 20px;
+}
+
+.skrift{
+    font-size: larger;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    background-image: url(https://images.unsplash.com/photo-1529387814771-bd36b10c01ca?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMzfHx8ZW58MHx8fHx8);
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#jus{
+    border-radius: 10px;
+    border: 10px solid orange;
+}
+
+.tilbake{
+    background-color: lightcyan;
+    padding: 10px;
+    border-radius: 10px;;
+    margin: 10px;
+}

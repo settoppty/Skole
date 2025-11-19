@@ -1,0 +1,55 @@
+
+body{
+    background-image: url(https://a.ltrbxd.com/resized/sm/upload/8i/hk/cq/31/k6BHXMBS7QACEuh2Nw1656OX4qT-1200-1200-675-675-crop-000000.jpg?v=65d36381c6);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.number1{
+    margin: 275px 50px 45px;
+    padding: 10px 20px;
+    background-color: blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: fit-content;
+}
+
+.number2{
+    margin: 50px 55px;
+    padding: 10px 50px;
+    background-color: brown;
+    width: fit-content;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+.number3{
+    margin: 50px 65px ;
+    padding: 10px 20px;
+    background-color: chartreuse;
+    font-family: "Shizuru", system-ui;
+    color: black;
+    width: fit-content;
+}
+
+.number4{
+    margin: 50px 75px;
+    background-color: hotpink;
+    padding: 10px 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: fit-content;
+}
+
+.border{
+    border: 2px solid rgb(251, 255, 5);
+    border-style: outset;
+    border-radius: 5px;
+
+}
+
+
+div{
+    size-adjust: larger;
+    font-size: x-large;
+
+}

@@ -1,0 +1,50 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    margin: auto;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+
+.quote{
+    position: relative;
+    left: 5rem;
+    top: 0;
+    color: rgb(12, 99, 23);
+    border-left: 5px, orange solid;
+}
+
+.fleximage{
+    height: 60%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("flex.png");
+}
+
+.parallax{
+    /* link for bildet */
+    background-image: url("pattern.jpg");
+    /* elementet trenger høyde for å eksistere */
+    height: 69%;
+    /* for å lage parallax effekten */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 60%;
+    width: 67%;
+}
