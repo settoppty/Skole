@@ -11,7 +11,8 @@ function primes(){
 
 let tall = [];
 function randomYo(){
-    while(tall.length <= 50){
+    while(tall.length < 50){
         tall.push (Math.ceil(Math.random) * 50)
     }
+    console.log (tall)
 }
