@@ -44,12 +44,12 @@ const fruits = ['banana', 'pear', 'apple'];
 fruits.push('mango');
 console.log('push()', fruits);
 
-//pop fjerner det siste elemente
+//pop fjerner det siste elementet
 const plants = ['fern', 'palm', 'cactus']
 plants.pop();
 console.log('pop():', plants)
  
-//shift  fjerner det første elemente
+//shift  fjerner det første elementet
 const games = ['soccer', 'basketball', 'hockey']
 games.shift()
 console.log('shift():', games)
@@ -65,5 +65,5 @@ console.log('unshift():', numbers)
 const months = ['Jan', 'March', 'Aprli', 'June']
 months.splice(1, 0, 'Feb')
 console.log('spilce() add:', months)
-months.splice(4, 1, 'May')
+months.splice(4, 1, 'May');
 console.log('splice () replace:', months)
