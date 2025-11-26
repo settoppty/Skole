@@ -24,9 +24,9 @@ displayTeam(team);
 
 function addNewTeamMember(newId, newName, newType, newLevel, newAttack, newHealth) {
     // lag et nytt objekt
-    let cho = newId: 5, newName: "chorp", newType: "sigma", newLevel: 68, newAttack: 41, newHealth: 20;
+
     // legg det nye objektet i arrayet
-    team.push(cho)
+    
 }
 
 addNewTeamMember(5, "Eevee", "Normal", 15, 30, 50);
