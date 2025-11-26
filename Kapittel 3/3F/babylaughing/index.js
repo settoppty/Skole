@@ -24,9 +24,12 @@ displayTeam(team);
 
 function addNewTeamMember(newId, newName, newType, newLevel, newAttack, newHealth) {
     // lag et nytt objekt
-
+    let newMember = {
+        id: newId, name: newName, type: newType, level: newLevel, attack: newAttack, health: newHealth
+    };
     // legg det nye objektet i arrayet
-    
+    team.push(newMember);
+    displayTeam(team);
 }
 
 addNewTeamMember(5, "Eevee", "Normal", 15, 30, 50);
