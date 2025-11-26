@@ -49,3 +49,16 @@ team.forEach(pokemon => {
     pokemon.health = Math.floor(Math.random()*21 + 20) 
 })
 displayTeam(team);
+
+
+let informasjonsteknologi1 = {
+    spraak: ["HTML", "CSS"],
+    likerFAget: false,
+    timetall: 5,
+    klasserom: "C14",
+    antallElever: 24
+};
+
+
+informasjonsteknologi1.antallElever = 1
+informasjonsteknologi1.spraak.push["JS"]
