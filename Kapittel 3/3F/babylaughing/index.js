@@ -32,3 +32,20 @@ function addNewTeamMember(newId, newName, newType, newLevel, newAttack, newHealt
 
 addNewTeamMember(5, "Eevee", "Normal", 15, 30, 50);
 displayTeam(team);
+
+
+
+
+
+team.forEach(pokemon => {
+    pokemon.level = 1;
+})
+
+team.forEach(pokemon => {
+    pokemon.attack = Math.random(Math.floor + 5) * 16
+})
+
+team.forEach(pokemon => {
+    pokemon.health = Math.random(Math.floor + 20) * 41
+})
+
