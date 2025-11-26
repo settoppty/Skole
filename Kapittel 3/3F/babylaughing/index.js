@@ -20,8 +20,6 @@ function displayTeam(pokemonArray) {
     });
 }
 
-displayTeam(team);
-
 function addNewTeamMember(newId, newName, newType, newLevel, newAttack, newHealth) {
     // lag et nytt objekt
     let newMember = {
