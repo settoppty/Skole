@@ -42,10 +42,10 @@ team.forEach(pokemon => {
 })
 
 team.forEach(pokemon => {
-    pokemon.attack = Math.random(Math.floor + 5) * 16
+    pokemon.attack = Math.floor(Math.random()*11 + 5) 
 })
 
 team.forEach(pokemon => {
-    pokemon.health = Math.random(Math.floor + 20) * 41
+    pokemon.health = Math.floor(Math.random()*21 + 20) 
 })
-
+displayTeam(team);
