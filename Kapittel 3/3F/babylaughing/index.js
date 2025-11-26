@@ -51,6 +51,9 @@ team.forEach(pokemon => {
 displayTeam(team);
 
 
+
+// LEKSERR
+
 let informasjonsteknologi1 = {
     spraak: ["HTML", "CSS"],
     likerFaget: false,
@@ -59,16 +62,49 @@ let informasjonsteknologi1 = {
     antallElever: 24
 };
 
+// a
+informasjonsteknologi1.spraak.push("JS");
 
+// b
 informasjonsteknologi1.antallElever = 1;
-informasjonsteknologi1.spraak.push["JS"];
 
+// c
 informasjonsteknologi1.likerFaget = true;
+
+// d
 delete informasjonsteknologi1.timetall;
 
-console.log(informasjonsteknologi1.spraak);
+// e
+// for (let informasjonsteknologi1 of informasjonsteknologi1){
+// console.log(informasjonsteknologi1[i].spraak);
+// }  HVA ER DETTE ?
+console.log(informasjonsteknologi1.spraak)
 
-
-for(let i = 0; i < informasjonsteknologi1.length; i++){
-    console.log(informasjonsteknologi1[i])
+// f
+for (let egenskap in informasjonsteknologi1){
+    console.log(egenskap)
 }
+// g
+for (let egenskap in informasjonsteknologi1){
+    console.log(informasjonsteknologi1[egenskap]);
+}
+
+// OPPGAVE 2
+
+// a
+let filmer = [
+    { tittel: "Jakten", regissor: "Thomas Vinterberg", sett: true},
+    { tittel: "Lilja-4-Ever", regissor: "Lukas Moodysson", sett: true},
+    { titel: "Nummer 24", regissor: "John Andreas Andersen", sett: true },
+    { tittel: "Sex", regissor: "Dag Johan Haugerud", sett: true},
+    {tittel: "Dune", regissor: "Denis Villeneuve", sett: true},
+    { tittel: "Sinners", regissor: "Ryan Coogler", sett: false},
+    { tittel: "Pulp Fiction", regissor: "Quentin Tarantino", sett: false},
+    { tittel: "Kill Bill", regissor: "Quentin Tarantino", sett: false},
+    { tittel:"Pusher", regissor: "Nicolas Winding Refn", sett: false},
+    { tittel: "La Haine", regissor: "Mathieu Kassovitz", sett: false},
+];
+
+filmer.forEach(film => {
+    console.log(film.tittel + film.regissor)
+})
