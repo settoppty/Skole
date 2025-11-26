@@ -95,7 +95,7 @@ for (let egenskap in informasjonsteknologi1){
 let filmer = [
     { tittel: "Jakten", regissor: "Thomas Vinterberg", sett: true},
     { tittel: "Lilja-4-Ever", regissor: "Lukas Moodysson", sett: true},
-    { titel: "Nummer 24", regissor: "John Andreas Andersen", sett: true },
+    { tittel: "Nummer 24", regissor: "John Andreas Andersen", sett: true },
     { tittel: "Sex", regissor: "Dag Johan Haugerud", sett: true},
     {tittel: "Dune", regissor: "Denis Villeneuve", sett: true},
     { tittel: "Sinners", regissor: "Ryan Coogler", sett: false},
@@ -105,6 +105,11 @@ let filmer = [
     { tittel: "La Haine", regissor: "Mathieu Kassovitz", sett: false},
 ];
 
+
 filmer.forEach(film => {
-    console.log(film.tittel + film.regissor)
+    if(sett = false)
+    console.log("X " + film.tittel + " by " + film.regissor)
+    else if(sett = true)
+        console.log("✓ " + film.tittel + " by " + film.regissor)
+    
 })
