@@ -53,12 +53,22 @@ displayTeam(team);
 
 let informasjonsteknologi1 = {
     spraak: ["HTML", "CSS"],
-    likerFAget: false,
+    likerFaget: false,
     timetall: 5,
     klasserom: "C14",
     antallElever: 24
 };
 
 
-informasjonsteknologi1.antallElever = 1
-informasjonsteknologi1.spraak.push["JS"]
+informasjonsteknologi1.antallElever = 1;
+informasjonsteknologi1.spraak.push["JS"];
+
+informasjonsteknologi1.likerFaget = true;
+delete informasjonsteknologi1.timetall;
+
+console.log(informasjonsteknologi1.spraak);
+
+
+for(let i = 0; i < informasjonsteknologi1.length; i++){
+    console.log(informasjonsteknologi1[i])
+}
