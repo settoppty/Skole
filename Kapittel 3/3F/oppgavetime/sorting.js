@@ -53,13 +53,13 @@ function showList(){
         h2El.innerHTML = o.name;
         h2El.innerHTML = "navn";
 
-        let h3E1 = document.createElement("h3");
+        let h3El = document.createElement("h3");
         h3El.innerhtml = o.price;
-        h3E1.className = "pris"
+        h3El.className = "pris"
 
         // Lager et p-element, som vi kan legge info i, og etterpå legger vi p-elementet inn i div'en.
         let pEl = document.createElement("p");
-        pE1.classname = o.name +"Info";
+        pEl.classname = o.name +"Info";
         
         
         // Lager en knapp vi kan bruke til å slette elementet.
@@ -70,7 +70,7 @@ function showList(){
 
         // Her legger vi p-elementet og knappen inn i div'en
         divEl.appendChild(h2El);
-        divEl.appendChild(h3E1);
+        divEl.appendChild(h3El);
         divEl.appendChild(pEl);
         divEl.appendChild(deleteBtn);
 
