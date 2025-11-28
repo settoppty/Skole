@@ -51,10 +51,14 @@ function showList(){
 
         let h2El = document.createElement("h2");
         h2El.innerHTML = o.name;
-        h2El.innerHTML = "navn";
+        h2El.className = "navn";
+
+        let iEl = document.createElement("h4");
+        iEl.innerHTML = o.category;
+        iEl.className = "kategori"
 
         let h3El = document.createElement("h3");
-        h3El.innerhtml = o.price;
+        h3El.innerHTML = o.price + " kr,-";
         h3El.className = "pris"
 
         // Lager et p-element, som vi kan legge info i, og etterpå legger vi p-elementet inn i div'en.
@@ -70,6 +74,7 @@ function showList(){
 
         // Her legger vi p-elementet og knappen inn i div'en
         divEl.appendChild(h2El);
+        divEl.appendChild(iEl)
         divEl.appendChild(h3El);
         divEl.appendChild(pEl);
         divEl.appendChild(deleteBtn);
@@ -93,6 +98,8 @@ function addToList(){
     // 3. Vis Arrayet på nytt.
     showList();
 }
+addToListEl.addEventListener("click", addToList);
+
 
 // Oppgave 4
 function sortByPrice(){
@@ -105,7 +112,24 @@ function comparePrice(a,b){
     return a.price - b.price;
 }
 
+
+
 // Lag en sortByName funksjon
+function compareName(a,b){
+      if (a.name > b.name) {
+    return 1;
+  } else if (a.name < b.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+function sortByName(){
+    list.sort(compareName);
+    showList();
+}
+document.getElementById("sortName").addEventListener("click", sortByName);
 // Lag en sortByCategory funksjon
 // Dere kan se på 3F-Objekter i arrayer for hint.
 
