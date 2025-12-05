@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listify</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="logo"></div>
+        </nav>
+        <div class="playlists">
+            <div class="album" id="songs">
+                <img src="" alt="">
+                Musikk
+                x sanger
+            </div>
+            <div class="album" id="Rap">
+                <img src="" alt="">
+                Rap
+                x sanger
+            </div>
+            <div class="album" id="Pop">
+                <img src="" alt="">
+                Pop
+                x sanger
+            </div>
+            <div class="album" id="Rock">
+                <img src="" alt="">
+                Rock
+                x sanger
+            </div>
+        </div>
+        <div class="main">
+            <div class="sort">Sort By</div>
+            <div class="categories">
+                <div class="nummer">#</div>
+                <div class="tittel">Tittel</div>
+                <div class="artist">Artist</div>
+                <div class="sjanger">Sjanger</div>
+            </div>
+            <div class="selvelisten">
+                <div class="sang" id="1">
+                    <div class="id">1</div>
+                    <div class="name">Deadman</div>
+                    <div class="creator">Sarina</div>
+                    <div class="genre">Rap</div>
+                </div>
+                <div class="sang" id="2">
+                    <div class="id">2</div>
+                    <div class="name">Answer</div>
+                    <div class="creator">Digga</div>
+                    <div class="genre">Pop</div>
+                </div>
+                <div class="sang" id="3">
+                        <div class="id">3</div>
+                        <div class="name">DS</div>
+                        <div class="creator">LowRoar</div>
+                        <div class="genre">Rock</div>
+                    <details> <summary> </summary> 
+                        <!-- For å ha space på pilen legger jeg kun til summary -->
+                        <p>DS is a song by LowRoar made for the game Death Stranding</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <div class="leggtil">
+            <label for="inputName">Navn:</label>
+            <input type="text" id="inputName">
+            
+            <label for="inputArtist">Artist:</label>
+            <input type="number" id="inputArtist">
+
+            <label>Sjanger:</label>
+            <select id="category">
+                <option value="Pop">Pop</option>
+                <option value="Rap">Rap</option>
+                <option value="Rock">Rock</option>
+            </select>
+
+            <button id="add">Legg til</button>
+        </div>
+    </div>
+</body>
+</html>
