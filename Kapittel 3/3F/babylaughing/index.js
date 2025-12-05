@@ -107,9 +107,12 @@ let filmer = [
 
 
 filmer.forEach(film => {
-    if(sett = false)
+    if(filmer.sett = false){
     console.log("X " + film.tittel + " by " + film.regissor)
-    else if(sett = true)
+
+    }
+    else if(filmer.sett = true)
         console.log("✓ " + film.tittel + " by " + film.regissor)
     
-})
+    
+}) 
