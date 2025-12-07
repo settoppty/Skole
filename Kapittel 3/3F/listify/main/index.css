@@ -1,0 +1,18 @@
+.wrapper{
+    display: grid;
+    grid-template-areas: 
+    "logo logo logo logo"
+    "left main main sidebar"
+    "left main main sidebar";
+     grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-rows: repeat(3* 1fr);
+}
+
+.logo{grid-area: logo;}
+
+
+.left{grid-area: left;}
+
+.main{grid-area: main;}
+
+.sidebar{grid-area: sidebar;}
