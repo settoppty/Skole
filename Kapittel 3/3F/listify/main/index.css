@@ -4,31 +4,41 @@
     "logo logo logo logo"
     "left main main sidebar"
     "left main main sidebar";
-     grid-template-columns: repeat(4, minmax(150px, 1fr));
-    grid-template-rows: repeat(3* 1fr);
-    gap: 1.5rem;
+     grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr auto;
+    row-gap: 3vh;
+    column-gap: 1vw;
     margin: auto;
 }
 
 .logo{
     grid-area: logo;
-    text-align: center;
     margin: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: aquamarine;
 }
 
 
-.left{grid-area: left;}
+.left{
+    grid-area: left;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
 
 
 .main{
     grid-area: main;
     display: grid;
+    grid-column-start: 2;
+    grid-column-end: 3;
     grid-template-areas:
     "num tittel artist sjanger"
     "id name creator genre";
     border: black 1px solid;
-    height: auto;
-    width: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .top{
@@ -71,4 +81,12 @@
     grid-area: genre;
 }
 
-.sidebar{grid-area: sidebar;}
+.sidebar{
+    grid-area: sidebar;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+}
