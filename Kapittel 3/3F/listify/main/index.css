@@ -1,51 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+
+
+/* responsiv til 1020pxw */
+
+
+body{
+    background-color: #191414;
+}
+
 .wrapper{
     display: grid;
     grid-template-areas: 
-    "logo logo logo logo"
-    "left main main sidebar"
-    "left main main sidebar";
+    "left main sidebar";
      grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto;
     row-gap: 3vh;
     column-gap: 1vw;
     margin: auto;
+    margin-top: 3vh;
+    color: aliceblue;
+    font-family: "Gabarito", sans-serif;
 }
-
-.logo{
-    grid-area: logo;
-    margin: auto;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    background-color: aquamarine;
-}
-
-
-.left{
-    grid-area: left;
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 2;
-}
-
 
 .main{
     grid-area: main;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-template-areas:
     "num tittel artist sjanger"
     "id name creator genre";
-    border: black 1px solid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 0.5em;
+    background-color: #292424;
+    border-radius: 1vh;
+    padding: 3vh
+}
+
+.sidebar{
+    grid-area: sidebar;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    gap: 1vh;
+    padding-top: 1vh;
+}
+
+.logo{
+    margin: auto;
+    text-align: center;
+    padding: 1vh;
+    color: #1DB954;
+    font-weight: 900;
+    font-family: "Gabarito", sans-serif;
+    font-size: xx-large; 
+}
+
+
+.left{
+    padding-top: 3vh;
+    grid-area: left;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 1vh;
+    height: 150%;
+    background-color: #292424;
+}
+
+
+.space{
+    display: flex;
+}
+
+.space div{
+    width: 10em;
 }
 
 .top{
     grid-area: top;
 }
 
-.numme{
+.nummer{
     grid-area: num;
 }
 
@@ -79,14 +121,4 @@
 
 .genre{
     grid-area: genre;
-}
-
-.sidebar{
-    grid-area: sidebar;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: baseline;
 }
