@@ -5,8 +5,16 @@
 /* responsiv til 1020pxw */
 
 
+hr{
+    width: max-content;
+    border: none;
+    border-top: 2px solid #535353;
+    width: 100%;
+margin-left: 0;
+}
+
 body{
-    background-color: #191414;
+    background-color: #121212;
 }
 
 .wrapper{
@@ -21,6 +29,7 @@ body{
     margin-top: 3vh;
     color: aliceblue;
     font-family: "Gabarito", sans-serif;
+    height: 100vh;
 }
 
 .main{
@@ -29,15 +38,11 @@ body{
     flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-template-areas:
-    "num tittel artist sjanger"
-    "id name creator genre";
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 0.5em;
-    background-color: #292424;
+    background-color: #212121;
     border-radius: 1vh;
-    padding: 3vh
+    padding: 3vh;
+    overflow-y: auto;
 }
 
 .sidebar{
@@ -50,6 +55,7 @@ body{
     align-items: baseline;
     gap: 1vh;
     padding-top: 1vh;
+    align-self: start;
 }
 
 .logo{
@@ -66,14 +72,21 @@ body{
 .left{
     padding-top: 3vh;
     grid-area: left;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
     grid-column-start: 1;
     grid-column-end: 2;
     border-radius: 1vh;
-    height: 150%;
-    background-color: #292424;
+    background-color: #212121;
+    max-height:min-content;
+    overflow-y: auto;
+    align-self: start;
 }
 
+
+.album{
+}
 
 .space{
     display: flex;
@@ -87,38 +100,3 @@ body{
     grid-area: top;
 }
 
-.nummer{
-    grid-area: num;
-}
-
-.tittel{
-    grid-area: tittel;
-}
-
-.artist{
-    grid-area: artist;
-}
-
-.sjanger{
-    grid-area: sjanger;
-}
-
-.liste{
-    grid-area: liste;
-}
-
-.id{
-    grid-area: id;
-}
-
-.name{
-    grid-area: name;
-}
-
-.creator{
-    grid-area: creator;
-}
-
-.genre{
-    grid-area: genre;
-}

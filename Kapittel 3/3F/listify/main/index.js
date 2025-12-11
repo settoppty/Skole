@@ -3,6 +3,21 @@
 
 
 
+// DISSE MÅ VÆRE OPPE FOR Å DEFINERE CONTAINER SLIK AT SHOWLIST KAN FUNGERE
+// Inputs:
+const inputNameEl = document.querySelector("#inputName");
+const inputCreatorEl = document.querySelector("#inputArtist");
+const inputGenreEl = document.querySelector("#inputGenre");
+// Containers:
+const containerEl = document.querySelector(".container");
+// Buttons:
+const addToListEl = document.querySelector("#add")
+// const sortByNameEl = document.querySelector("#sortName");
+// const sortByCreatorEl = document.querySelector("#sortArtist");
+// const sortByGenreEl = document.querySelector("#sortGenre");
+
+
+
 function showList(){
     console.log("Er i Show List.");
     
@@ -10,12 +25,12 @@ function showList(){
 
 let list = 
 [
-    {id: "1", name: "DS", creator:"LowRoar", genre:"aGze" }
+    {id: "1", name: "Beat it", creator:"Michael Jackson", genre:"Pop" }
 ];
 
 showList();
 function showList(){
-    containerEl.innerhtml = " ";
+    containerEl.innerHTML = " ";
 
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
@@ -51,29 +66,19 @@ function showList(){
     }
 }
 
-// Inputs:
-const inputNameEl = document.querySelector("#inputName");
-const inputcreatorEl = document.querySelector("#inputArtist");
-const inputgenreEl = document.querySelector("#inputGenre");
-// Containers:
-const containerEl = document.querySelector(".container");
-// Buttons:
-const addToListEl = document.querySelector("#add")
-const sortByNameEl = document.querySelector("#sortName");
-const sortByPriceEl = document.querySelector("#sortArtist");
-const sortByCategoryEl = document.querySelector("#sortCategory");
 
 function addToList(){
     let addName = inputNameEl.value;
-    let addPrice = Number(inputPriceEl.value);
-    let addCategory = inputCategoryEl.value;
+    let addCreator = inputCreatorEl.value;
+    let addGenre = inputGenreEl.value;
 
     // 1. Lag et objekt med variablene over.
     let newListObject = {
-         name: addName, price: addPrice, category: addCategory};
+         id: list.length + 1, name: addName, creator: addCreator, genre: addGenre};
     // 2. Legg til objektet i listen
     list.push(newListObject);
     // 3. Vis Arrayet på nytt.
     showList();
+    console.log("ayo")
 }
 addToListEl.addEventListener("click", addToList);
