@@ -12,7 +12,7 @@ const inputGenreEl = document.querySelector("#inputGenre");
 const containerEl = document.querySelector(".container");
 // Buttons:
 const addToListEl = document.querySelector("#add")
-// const sortByNameEl = document.querySelector("#sortName");
+const sortByNameEl = document.querySelector("#sortName");
 // const sortByCreatorEl = document.querySelector("#sortArtist");
 // const sortByGenreEl = document.querySelector("#sortGenre");
 
@@ -79,6 +79,33 @@ function addToList(){
     list.push(newListObject);
     // 3. Vis Arrayet på nytt.
     showList();
-    console.log("ayo")
 }
 addToListEl.addEventListener("click", addToList);
+
+// SortByName
+function compareName(a,b){
+      if (a.name > b.name) {
+    return 1;
+  } else if (a.name < b.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+function sortByName(){
+    list.sort(compareName);
+    showList();
+}
+document.getElementById("sortName").addEventListener("change", sortByName);
+
+// SortByID
+function sortByID(){
+    list.sort(comparePrice);
+    showList();
+}
+document.getElementById("sortPrice").addEventListener("change", sortByPrice);
+
+function comparePrice(a,b){
+    return a.id - b.id;
+}
