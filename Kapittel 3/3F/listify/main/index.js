@@ -100,7 +100,10 @@ function sortCheck(event){
         list.sort(compareID);
     }
     else if (sortType == "a-z"){
-        list.sort(compareName)
+        list.sort(compareName);
+    }
+    else if (sortTYpe == "artist"){
+        list.sort(compareArtist);
     }
     else{
         console.error("Can't sort by " + sortType);
@@ -126,8 +129,15 @@ function compareName(a,b){
 function compareID(a,b){
     return a.id - b.id;
 }
-
-
+function compareArtist(a,b){
+          if (a.creator > b.creator) {
+    return 1;
+  } else if (a.creator < b.creator) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
 // RemoveFromList
 function removeFromList(e){
     let index = e.target.id;
