@@ -12,9 +12,7 @@ const inputGenreEl = document.querySelector("#inputGenre");
 const containerEl = document.querySelector(".container");
 // Buttons:
 const addToListEl = document.querySelector("#add")
-const sortByNameEl = document.querySelector("#sortName");
-// const sortByCreatorEl = document.querySelector("#sortArtist");
-// const sortByGenreEl = document.querySelector("#sortGenre");
+const sortSelectEl = document.querySelector("#sort");
 
 
 
@@ -56,11 +54,18 @@ function showList(){
         genreEl.innerHTML = o.genre
         genreEl.className = "genre";
 
+        let deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "X";
+        deleteBtn.id = i;   // Bruker id'en til å identifisere hvilken knapp det trykkes på!
+        deleteBtn.addEventListener("click", removeFromList);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
+
+
 
         divEl.appendChild(idEl);
         divEl.appendChild(nameEl);
         divEl.appendChild(creatorEl);
         divEl.appendChild(genreEl);
+        divEl.appendChild(deleteBtn);
 
         containerEl.appendChild(divEl);
     }
@@ -83,6 +88,30 @@ function addToList(){
 addToListEl.addEventListener("click", addToList);
 
 // SortByName
+sortSelectEl.addEventListener("change", sortCheck)
+function sortCheck(event){
+    // EVENT er en variabel som blir sendt med alle eventListeners
+    // De inneholder masse info inkl. hva som skjedde på event.target
+    // event.target gir html-elementet som ble endret. Select/Input elementer har noe som heter value
+    let sortType = event.target.value;
+
+    if (sortType == "id"){
+        list.sort(compareID);
+    }
+    else if (sortType == "a-z"){
+        list.sort(compareName)
+    }
+    else{
+        console.error("Can't sort by " + sortType);
+    }
+    
+    showList()
+
+    // Bare for å se
+    console.log("------------EVENT-----------");
+    console.log(event)
+    console.log("---------FERDIG-------------");
+}
 function compareName(a,b){
       if (a.name > b.name) {
     return 1;
@@ -93,19 +122,17 @@ function compareName(a,b){
   }
 }
 
-function sortByName(){
-    list.sort(compareName);
-    showList();
-}
-document.getElementById("sortName").addEventListener("change", sortByName);
-
-// SortByID
-function sortByID(){
-    list.sort(comparePrice);
-    showList();
-}
-document.getElementById("sortPrice").addEventListener("change", sortByPrice);
-
-function comparePrice(a,b){
+function compareID(a,b){
     return a.id - b.id;
+}
+
+
+// RemoveFromList
+function removeFromList(e){
+    let index = e.target.id;
+    list.splice(index, 1);
+    showList()
+    
+
+
 }

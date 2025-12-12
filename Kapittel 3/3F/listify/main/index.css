@@ -13,6 +13,14 @@ hr{
 margin-left: 0;
 }
 
+.btn{
+    transition: .2s;
+}
+.btn:hover{
+    background-color: #121212;
+    color: aliceblue;
+}
+
 body{
     background-color: #121212;
 }
