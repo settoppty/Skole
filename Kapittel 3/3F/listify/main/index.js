@@ -16,19 +16,14 @@ const sortSelectEl = document.querySelector("#sort");
 
 
 
-function showList(){
-    console.log("Er i Show List.");
-    
-}
-
 let list = 
 [
-    {id: "1", name: "Beat it", creator:"Michael Jackson", genre:"Pop" }
+    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop" }
 ];
 
 showList();
 function showList(){
-    containerEl.innerHTML = " ";
+    containerEl.innerHTML = "";
 
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
@@ -102,8 +97,9 @@ function sortCheck(event){
     else if (sortType == "a-z"){
         list.sort(compareName);
     }
-    else if (sortTYpe == "artist"){
+    else if (sortType == "artist"){
         list.sort(compareArtist);
+        console.log("Sorter på artist:", list);
     }
     else{
         console.error("Can't sort by " + sortType);
