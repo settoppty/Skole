@@ -56,6 +56,7 @@ function showList(){
 
         let deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "X";
+        deleteBtn.className = "btn delete";
         deleteBtn.id = i;   // Bruker id'en til å identifisere hvilken knapp det trykkes på!
         deleteBtn.addEventListener("click", removeFromList);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
 

@@ -13,12 +13,28 @@ hr{
 margin-left: 0;
 }
 
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
 .btn{
-    transition: .2s;
+    transition: .07s;
+        background-color: #121212;
+    color: #29fe74;
+
 }
 .btn:hover{
-    background-color: #121212;
+
+        background-color: #535353;
     color: aliceblue;
+}
+
+.delete:hover{
+        animation: shake 0.5s ease-in-out;
 }
 
 body{
@@ -74,6 +90,11 @@ body{
     font-weight: 900;
     font-family: "Gabarito", sans-serif;
     font-size: xx-large; 
+    transition: 0.5s;
+}
+
+.logo:hover{
+    transform: scale(1.1);
 }
 
 
