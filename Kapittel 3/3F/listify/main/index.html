@@ -13,55 +13,44 @@
     <div class="wrapper">
         <div class="left">
             <div class="album" id="songs">
-                <img src="" alt="">
-                All songs
-                x sanger
+                    <button class="show">Show all songs</button>
             </div>
             <div class="album" id="Hip-Hop">
-                <img src="" alt="">
-                Hip-Hop
-                x sanger
+                    <button class="show">Show Hip-Hop</button>
             </div>
             <div class="album" id="Pop">
-                <img src="" alt="">
-                Pop
-                x sanger
+                     <button class="show">Show Pop</button>
             </div>
             <div class="album" id="Rock">
-                <img src="" alt="">
-                Rock
-                x sanger
+                    <button class="show">Show Rock</button>
             </div>
-                        <div class="album" id="Jazz">
-                <img src="" alt="">
-                Jazz
-                x sanger
+             <div class="album" id="Jazz">
+                    <button class="show">Show Jazz</button> 
+            </div>               
+             <div class="album" id="Classic">
+                    <button class="show">Show Classical</button>
             </div>
-                        <div class="album" id="Classic">
-                <img src="" alt="">
-                Classic
-                x sanger
-            </div>
-                        <div class="album" id="Electronic">
-                <img src="" alt="">
-                Electronic
-                x sanger
+             <div class="album" id="Electronic">
+                    <button class="show">Show Eletronic</button>
+
             </div>
          </div>
          <div class="main">
                  <div class="top">
+                    <button class="add">Legg til sang</button>
                 <label for="sort">Sort by:</label>
                 <select name="" id="sort">
                     <option value="id">ID</option>
                     <option value="a-z">Alphabetical</option>
                     <option value="artist">Artist</option>
+                    <option value="date">Date</option>
                 </select>
             </div>
                 <div class="categories space">
                     <div class="nummer">#</div>
                     <div class="tittel">Tittel</div>
                     <div class="artist">Artist</div>
-                    <div class="sjanger">Sjanger</div>
+                    <div>Release date</div>
                 </div> <hr>
                 <div class="container">
                     <!-- skal fylles inn av java -->
@@ -78,8 +67,8 @@
                 <label for="inputArtist">Artist:</label> <br>
                 <input type="text" id="inputArtist"> <br>
                 
-                <label for="inputBio">Bio:</label> <br>
-                <input type="text" id="inputBio"> <br>
+                <label for="inputDate">Date:</label> <br>
+                <input type="date" id="inputDate"> <br>
                 
                 <label>Sjanger:</label> <br>
                 <select id="inputGenre"> 

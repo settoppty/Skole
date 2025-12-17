@@ -31,10 +31,13 @@ margin-left: 0;
 
         background-color: #535353;
     color: aliceblue;
+    cursor: pointer;
 }
 
 .delete:hover{
         animation: shake 0.5s ease-in-out;
+        background-color:red;
+            color:#121212;
 }
 
 body{
@@ -113,9 +116,19 @@ body{
     align-self: start;
 }
 
+#inputGenre, #inputName, #inputArtist, #sort{
+    cursor: pointer;
+}
+
+.show{
+    cursor: pointer;
+
+}
 
 
-
+.add{
+    display: none;
+}
 .space{
     display: flex;
 }
@@ -128,3 +141,9 @@ body{
     grid-area: top;
 }
 
+
+@media(max-width: 1020px){
+    #add{
+        display:show;
+    }
+}

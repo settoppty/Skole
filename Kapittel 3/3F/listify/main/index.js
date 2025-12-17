@@ -8,6 +8,7 @@
 const inputNameEl = document.querySelector("#inputName");
 const inputCreatorEl = document.querySelector("#inputArtist");
 const inputGenreEl = document.querySelector("#inputGenre");
+const inputDateEL = document.querySelector("#inputDate")
 // Containers:
 const containerEl = document.querySelector(".container");
 // Buttons:
@@ -18,7 +19,7 @@ const sortSelectEl = document.querySelector("#sort");
 
 let list = 
 [
-    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop" }
+    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"}
 ];
 
 showList();
@@ -45,9 +46,9 @@ function showList(){
         creatorEl.innerHTML = o.creator
         creatorEl.className = "creator";
 
-        let genreEl = document.createElement("div");
-        genreEl.innerHTML = o.genre
-        genreEl.className = "genre";
+        let dateEl = document.createElement("div");
+        dateEl.innerHTML = o.date
+        dateEl.className = "date";
 
         let deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "X";
@@ -60,7 +61,7 @@ function showList(){
         divEl.appendChild(idEl);
         divEl.appendChild(nameEl);
         divEl.appendChild(creatorEl);
-        divEl.appendChild(genreEl);
+        divEl.appendChild(dateEl);
         divEl.appendChild(deleteBtn);
 
         containerEl.appendChild(divEl);
@@ -72,10 +73,11 @@ function addToList(){
     let addName = inputNameEl.value;
     let addCreator = inputCreatorEl.value;
     let addGenre = inputGenreEl.value;
+    let addDate = inputDateEL.value;
 
     // 1. Lag et objekt med variablene over.
     let newListObject = {
-         id: list.length + 1, name: addName, creator: addCreator, genre: addGenre};
+         id: list.length + 1, name: addName, creator: addCreator, genre: addGenre, date: addDate};
     // 2. Legg til objektet i listen
     list.push(newListObject);
     // 3. Vis Arrayet på nytt.
@@ -100,6 +102,9 @@ function sortCheck(event){
     else if (sortType == "artist"){
         list.sort(compareArtist);
         console.log("Sorter på artist:", list);
+    }
+    else if (sortType == "date"){
+      list.sort(compareDate);
     }
     else{
         console.error("Can't sort by " + sortType);
@@ -134,6 +139,15 @@ function compareArtist(a,b){
     return 0;
   }
 }
+function compareDate(a,b){
+    if (a.date > b.date) {
+    return 1;
+  } else if (a.date < b.date) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
 // RemoveFromList
 function removeFromList(e){
     let index = e.target.id;
