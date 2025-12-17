@@ -11,56 +11,10 @@
         <div class="logo"><p>Listify</p></div>
     </nav>
     <div class="wrapper">
-        <div class="left">
-            <div class="album" id="songs">
-                    <button class="show">Show all songs</button>
-            </div>
-            <div class="album" id="Hip-Hop">
-                    <button class="show">Show Hip-Hop</button>
-            </div>
-            <div class="album" id="Pop">
-                     <button class="show">Show Pop</button>
-            </div>
-            <div class="album" id="Rock">
-                    <button class="show">Show Rock</button>
-            </div>
-             <div class="album" id="Jazz">
-                    <button class="show">Show Jazz</button> 
-            </div>               
-             <div class="album" id="Classic">
-                    <button class="show">Show Classical</button>
-            </div>
-             <div class="album" id="Electronic">
-                    <button class="show">Show Eletronic</button>
 
-            </div>
-         </div>
-         <div class="main">
-                 <div class="top">
-                    <button class="add">Legg til sang</button>
-                <label for="sort">Sort by:</label>
-                <select name="" id="sort">
-                    <option value="id">ID</option>
-                    <option value="a-z">Alphabetical</option>
-                    <option value="artist">Artist</option>
-                    <option value="date">Date</option>
-                </select>
-            </div>
-                <div class="categories space">
-                    <div class="nummer">#</div>
-                    <div class="tittel">Tittel</div>
-                    <div class="artist">Artist</div>
-                    <div>Release date</div>
-                </div> <hr>
-                <div class="container">
-                    <!-- skal fylles inn av java -->
-                </div>
-            </div>
-            
-            
-            <div class="sidebar">
+         <div class="sidebar">
                 <fieldset>
-                    <legend>Legg til sang:</legend>
+                    <legend>Add new song:</legend>
                 <label for="inputName">Navn:</label> <br>
                 <input type="text" id="inputName"> <br>
                 
@@ -80,10 +34,54 @@
                     <option value="Electronic">Electronic</option>
                 </select>
                 
-                <button class="btn" id="add">Legg til</button>
+                <button class="btn" id="add">Add song</button>
             </fieldset>
         </div>
-        
+        <div class="left">
+            <h4>Show Genre:</h4>
+            <div class="album" id="songs">
+                    <button value="all" id="all">Show all songs</button>
+            </div>
+            <div class="album" id="Hip-Hop">
+                    <button value="Hip-Hop" id="Hip-Hop">Show Hip-Hop</button>
+            </div>
+            <div class="album" id="Pop">
+                     <button value="Pop" id="Pop">Show Pop</button>
+            </div>
+            <div class="album" id="Rock">
+                    <button value="Rock" id="Rock">Show Rock</button>
+            </div>
+             <div class="album" id="Jazz">
+                    <button value="Jazz" id="Jazz">Show Jazz</button> 
+            </div>               
+             <div class="album" id="Classic">
+                    <button value="Classic" id="Classic">Show Classical</button>
+            </div>
+             <div class="album" id="Electronic">
+                    <button value="Electronic" id="Electronic">Show Eletronic</button>
+
+            </div>
+         </div>
+         <div class="main">
+                 <div class="top">
+                <label for="sort">Sort by:</label>
+                <select name="" id="sort">
+                    <option value="id">ID</option>
+                    <option value="a-z">Alphabetical</option>
+                    <option value="artist">Artist</option>
+                    <option value="date">Date</option>
+                </select>
+            </div>
+                <div class="categories space">
+                    <div class="nummer">#</div>
+                    <div class="tittel">Title</div>
+                    <div class="artist">Artist</div>
+                    <div>Release date</div>
+                </div> <hr>
+                <div class="container">
+                    <!-- skal fylles inn av java -->
+                </div>
+            </div>
     </div>
     <script src="index.js"></script>
 </body>

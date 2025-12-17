@@ -53,11 +53,3 @@ body{
         background-color: #888;
 }
 
-/* Setter grid på id'ene */
-#logo{grid-area: logo;}
-#title{grid-area: title;}
-#image1{grid-area: image1;}
-#image2{grid-area: image2;}
-#info{grid-area: info;}
-#side{grid-area: side;}
-#main{grid-area: main;}

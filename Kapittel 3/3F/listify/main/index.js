@@ -8,19 +8,29 @@
 const inputNameEl = document.querySelector("#inputName");
 const inputCreatorEl = document.querySelector("#inputArtist");
 const inputGenreEl = document.querySelector("#inputGenre");
-const inputDateEL = document.querySelector("#inputDate")
+const inputDateEL = document.querySelector("#inputDate");
 // Containers:
 const containerEl = document.querySelector(".container");
 // Buttons:
-const addToListEl = document.querySelector("#add")
+const addToListEl = document.querySelector("#add");
 const sortSelectEl = document.querySelector("#sort");
+const genreSelectEl = document.querySelectorAll(".album");
 
-
+for (let i = 0; i < genreSelectEl.length; i++) {
+  let button = genreSelectEl[i].querySelector("button");
+  let genre = button.value;
+  button.addEventListener("click", function() {
+    selectedGenre = genre;
+    showList();
+  });
+}
 
 let list = 
 [
     {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"}
 ];
+
+ let selectedGenre = "all";
 
 showList();
 function showList(){
@@ -29,42 +39,43 @@ function showList(){
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
         let o = list[i];
+        if (selectedGenre == "all" || o.genre == selectedGenre) {
+          // For hver sang i list, lag en div og fyll den med info
+          let divEl = document.createElement("div");
+          divEl.className = "sang space";
 
-        // For hver sang i list, lag en div og fyll den med info
-        let divEl = document.createElement("div");
-        divEl.className = "sang space";
+          let idEl = document.createElement("div");
+          idEl.innerHTML = o.id;
+          idEl.className = "id";
 
-        let idEl = document.createElement("div");
-        idEl.innerHTML = o.id;
-        idEl.className = "id";
+          let nameEl = document.createElement("div");
+          nameEl.innerHTML = o.name
+          nameEl.className = "name";
+          
+          let creatorEl = document.createElement("div");
+          creatorEl.innerHTML = o.creator
+          creatorEl.className = "creator";
 
-        let nameEl = document.createElement("div");
-        nameEl.innerHTML = o.name
-        nameEl.className = "name";
-        
-        let creatorEl = document.createElement("div");
-        creatorEl.innerHTML = o.creator
-        creatorEl.className = "creator";
+          let dateEl = document.createElement("div");
+          dateEl.innerHTML = o.date
+          dateEl.className = "date";
 
-        let dateEl = document.createElement("div");
-        dateEl.innerHTML = o.date
-        dateEl.className = "date";
-
-        let deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "X";
-        deleteBtn.className = "btn delete";
-        deleteBtn.id = i;   // Bruker id'en til å identifisere hvilken knapp det trykkes på!
-        deleteBtn.addEventListener("click", removeFromList);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
+          let deleteBtn = document.createElement("button");
+          deleteBtn.innerHTML = "X";
+          deleteBtn.className = "btn delete";
+          deleteBtn.id = i;   // Bruker id'en til å identifisere hvilken knapp det trykkes på!
+          deleteBtn.addEventListener("click", removeFromList);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
 
 
 
-        divEl.appendChild(idEl);
-        divEl.appendChild(nameEl);
-        divEl.appendChild(creatorEl);
-        divEl.appendChild(dateEl);
-        divEl.appendChild(deleteBtn);
+          divEl.appendChild(idEl);
+          divEl.appendChild(nameEl);
+          divEl.appendChild(creatorEl);
+          divEl.appendChild(dateEl);
+          divEl.appendChild(deleteBtn);
 
         containerEl.appendChild(divEl);
+        }
     }
 }
 
@@ -84,6 +95,7 @@ function addToList(){
     showList();
 }
 addToListEl.addEventListener("click", addToList);
+
 
 // SortByName
 sortSelectEl.addEventListener("change", sortCheck)
@@ -157,3 +169,7 @@ function removeFromList(e){
 
 
 }
+
+
+
+

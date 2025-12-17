@@ -23,13 +23,13 @@ margin-left: 0;
 
 .btn{
     transition: .07s;
-        background-color: #121212;
+     background-color: #121212;
     color: #29fe74;
 
 }
 .btn:hover{
 
-        background-color: #535353;
+    background-color: #535353;
     color: aliceblue;
     cursor: pointer;
 }
@@ -37,11 +37,13 @@ margin-left: 0;
 .delete:hover{
         animation: shake 0.5s ease-in-out;
         background-color:red;
-            color:#121212;
+        color:#121212;
 }
 
 body{
     background-color: #121212;
+    height: 100%;
+    overflow: hidden;
 }
 
 .wrapper{
@@ -85,6 +87,34 @@ body{
     align-self: start;
 }
 
+#Hip-Hop{
+    color: red;
+}
+#Pop{
+    color: orchid;
+}
+#Rock{
+    color: orange ;
+}
+#Jazz{
+    color: yellow;
+}
+#Classic{
+    color: aliceblue;
+}
+#Electronic{
+    color: aqua;
+}
+button{
+    transition: .07s;
+    background-color: #121212;
+    color: #29fe74;
+}
+button:hover{
+        background-color: #535353;
+    color: aliceblue;
+    cursor: pointer;
+}
 .logo{
     margin: auto;
     text-align: center;
@@ -98,6 +128,10 @@ body{
 
 .logo:hover{
     transform: scale(1.1);
+}
+
+.container > .sang:nth-child(odd){
+    color: #1DB954;
 }
 
 
@@ -114,6 +148,7 @@ body{
     max-height:min-content;
     overflow-y: auto;
     align-self: start;
+    padding-bottom: 3vh;
 }
 
 #inputGenre, #inputName, #inputArtist, #sort{
@@ -143,7 +178,36 @@ body{
 
 
 @media(max-width: 1020px){
-    #add{
-        display:show;
-    }
+
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            row-gap: 0vw;
+            column-gap: 0vh;
+        }
+        .left{
+            display: flex;
+            flex-direction: row;
+            overflow-x:auto;
+            overflow-y: hidden;
+            border-radius: 0%;
+            border-top-left-radius: 1vh;
+            border-top-right-radius: 1vh;
+            white-space: nowrap;
+            max-height: 4.5rem;
+            max-width: 100vw;
+            align-items: baseline;
+            height: auto;
+        }
+        .album{
+            text-align: center;
+            flex: 0 0 auto;
+
+        }
+        .sidebar{
+            align-self: center;
+        }
+        .main{
+            border-radius: 0%;
+        }
 }
