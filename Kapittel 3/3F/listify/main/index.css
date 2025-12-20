@@ -43,7 +43,7 @@ margin-left: 0;
 body{
     background-color: #121212;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .wrapper{
@@ -73,6 +73,21 @@ body{
     padding: 3vh;
     overflow-y: auto;
 }
+.sang.hiphop > div{ color:cornflowerblue; }
+.sang.pop > div{ color: orchid; }
+.sang.rock > div{ color: red; }
+.sang.jazz > div{ color: yellow; }
+.sang.classic > div{ color: aliceblue; }
+.sang.electronic > div{ color: cyan; }
+
+.container > div{
+    margin-bottom: 0.7vh;
+}
+
+.container > .sang:nth-child(even){
+    background-color: #53535326;
+    border-radius: 0.4vh;
+}
 
 .sidebar{
     grid-area: sidebar;
@@ -88,13 +103,13 @@ body{
 }
 
 #Hip-Hop{
-    color: red;
+    color: cornflowerblue;
 }
 #Pop{
     color: orchid;
 }
 #Rock{
-    color: orange ;
+    color: red ;
 }
 #Jazz{
     color: yellow;
@@ -103,7 +118,7 @@ body{
     color: aliceblue;
 }
 #Electronic{
-    color: aqua;
+    color: cyan;
 }
 button{
     transition: .07s;
@@ -130,9 +145,6 @@ button:hover{
     transform: scale(1.1);
 }
 
-.container > .sang:nth-child(odd){
-    color: #1DB954;
-}
 
 
 .left{

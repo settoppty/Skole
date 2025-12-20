@@ -27,11 +27,13 @@ for (let i = 0; i < genreSelectEl.length; i++) {
 
 let list = 
 [
-    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"}
+    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"},
+    {id: 2, name: "Musik Non Stop", creator: "kent", genre:"Rock", date:"1999-11-15"},
+    {id: 3, name: "Subwoofer Lullaby", creator: "C418", genre: "Electronic", date: "2011-03-04"},
 ];
 
  let selectedGenre = "all";
-
+ 
 showList();
 function showList(){
     containerEl.innerHTML = "";
@@ -39,10 +41,11 @@ function showList(){
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
         let o = list[i];
+        let genreClass = o.genre.toLowerCase().replace(/[^a-z]/g, ""); // Finn sjangeren og gjør det brukbart i js når den skal legge det til som class
         if (selectedGenre == "all" || o.genre == selectedGenre) {
           // For hver sang i list, lag en div og fyll den med info
           let divEl = document.createElement("div");
-          divEl.className = "sang space";
+          divEl.className = "sang space " + genreClass;
 
           let idEl = document.createElement("div");
           idEl.innerHTML = o.id;
@@ -169,6 +172,10 @@ function removeFromList(e){
 
 
 }
+
+
+
+// colorByGenre
 
 
 
