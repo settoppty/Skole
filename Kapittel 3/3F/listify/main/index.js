@@ -1,6 +1,12 @@
-//const selectCategoryEl = document.querySelector("#sort");
-//selectCategoryEl.addEventListener("change", showList)
-
+let list = null
+if(localStorage.list){
+  list = JSON.parse(localStorage.list);
+}
+else{
+  // Aldri vært på denne siden før
+  list = []
+  localStorage.list = JSON.stringify(list);
+}
 
 
 // DISSE MÅ VÆRE OPPE FOR Å DEFINERE CONTAINER SLIK AT SHOWLIST KAN FUNGERE
@@ -25,18 +31,18 @@ for (let i = 0; i < genreSelectEl.length; i++) {
   });
 }
 
-let list = 
-[
-    {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"},
-    {id: 2, name: "Musik Non Stop", creator: "kent", genre:"Rock", date:"1999-11-15"},
-    {id: 3, name: "Subwoofer Lullaby", creator: "C418", genre: "Electronic", date: "2011-03-04"},
-];
+// let list = 
+// [
+//     {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"},
+//     {id: 2, name: "Musik Non Stop", creator: "kent", genre:"Rock", date:"1999-11-15"},
+//     {id: 3, name: "Subwoofer Lullaby", creator: "C418", genre: "Electronic", date: "2011-03-04"},
+// ];
 
  let selectedGenre = "all";
  
 showList();
 function showList(){
-    containerEl.innerHTML = "";
+    l.innerHTML = "";
 
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
@@ -95,6 +101,7 @@ function addToList(){
     // 2. Legg til objektet i listen
     list.push(newListObject);
     // 3. Vis Arrayet på nytt.
+    localStorage.list = JSON.stringify(list);
     showList();
 }
 addToListEl.addEventListener("click", addToList);
@@ -167,6 +174,7 @@ function compareDate(a,b){
 function removeFromList(e){
     let index = e.target.id;
     list.splice(index, 1);
+    localStorage.list = JSON.stringify(list);
     showList()
     
 
@@ -174,8 +182,6 @@ function removeFromList(e){
 }
 
 
-
-// colorByGenre
 
 
 

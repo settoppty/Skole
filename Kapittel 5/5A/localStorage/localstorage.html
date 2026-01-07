@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // DETTE ER I TOPPEN
+    if(localStorage.movie){
+        let movie = JSON.parse(localStorage.movie)
+    }
+    else{
+        let movie = [
+            {
+                title: "Big",
+                director: "Guy Hend",
+                genre: "action"
+            },
+            {
+                title: "yo",
+                director: "Huuuuy Huynh",
+                genre: "Drama"
+            }
+        ]
+        localStorage.movie = JSON.stringify(movie);
+    }
+    // NÅ JHAR VI SIKRET AT VI HAR INFO VI KAN BRUKE
+    // NÅR DU LEGGER TIL NOE TIL LISTA MÅ DU KJØRE
+    localStorage.movie = JSON.stringify(movie);
+</script>
+</html>
