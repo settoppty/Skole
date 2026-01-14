@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    min-height: auto;
+    align-items: stretch;
+}
+.profile{
+    flex-grow: 1;
+    background-color: antiquewhite;
+}
+.chat{
+    flex-grow: 2;
+    background-color: darkblue;
+    height: auto;
+}
+.dice{
+    flex-grow: 1;
+    background-color: darkgoldenrod;
+}
