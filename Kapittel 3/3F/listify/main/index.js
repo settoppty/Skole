@@ -1,3 +1,21 @@
+//#region imports and connection to firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, where, serverTimestamp} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCpDOb6-bOCRdIUX_KS0kYFUTiVaWmHaGo",
+    authDomain: "herregud.firebaseapp.com",
+    projectId: "herregud",
+    storageBucket: "herregud.firebasestorage.app",
+    messagingSenderId: "1032091752368",
+    appId: "1:1032091752368:web:cc2474622c4e048c926875"
+  };
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+//#endregion
+
+
 let list;
 if(localStorage.info){
   list = JSON.parse(localStorage.info);
@@ -38,12 +56,21 @@ for (let i = 0; i < genreSelectEl.length; i++) {
  let selectedGenre = "all";
  
 showList();
-function showList(){
+async function showList(){
     containerEl.innerHTML = "";
 
     for (let i = 0; i < list.length; i++) {
         // Henter objekter
-        let o = list[i];
+        //  spør databasen om dette
+        let listQuery = query(collection(db, "listify"));
+        let listDocs = await getDocs(listQuery);
+        
+         // finne collection id. den som blir autoGenerert
+          listDocs.forEach((docInfo)=>{
+            console.log(docInfo.id);              
+            let o = docInfo.data();
+          
+        // let o = list[i];
         let genreClass = o.genre.toLowerCase().replace(/[^a-z]/g, ""); // Finn sjangeren og gjør det brukbart i js når den skal legge det til som class
         if (selectedGenre == "all" || o.genre == selectedGenre) {
           // For hver sang i list, lag en div og fyll den med info
@@ -81,27 +108,28 @@ function showList(){
           divEl.appendChild(deleteBtn);
 
         containerEl.appendChild(divEl);
-        }
+        }})
     }
 }
 
 
-function addToList(){
-    let addName = inputNameEl.value;
-    let addCreator = inputCreatorEl.value;
-    let addGenre = inputGenreEl.value;
-    let addDate = inputDateEL.value;
+// function addToList(){
+//     let addName = inputNameEl.value;
+//     let addCreator = inputCreatorEl.value;
+//     let addGenre = inputGenreEl.value;
+//     let addDate = inputDateEL.value;
 
-    // 1. Lag et objekt med variablene over.
-    let newListObject = {
-         id: list.length + 1, name: addName, creator: addCreator, genre: addGenre, date: addDate};
-    // 2. Legg til objektet i listen
-    list.push(newListObject);
-    // 3. Vis Arrayet på nytt.
-    localStorage.info = JSON.stringify(list);
-    showList();
-}
-addToListEl.addEventListener("click", addToList);
+//     // 1. Lag et objekt med variablene over.
+//     let newListObject = {
+//          id: list.length + 1, name: addName, creator: addCreator, genre: addGenre, date: addDate};
+//     // 2. Legg til objektet i listen
+//     list.push(newListObject);
+//     // 3. Vis Arrayet på nytt.
+//     localStorage.info = JSON.stringify(list);
+//     showList();
+// }
+// addToListEl.addEventListener("click", addToList);
+
 
 
 // SortByName
@@ -181,6 +209,20 @@ function removeFromList(e){
 
 
 
+// FIREBASE
 
-
+addToListEl.addEventListener("click", addToDatabase);
+async function addToDatabase(){
+    let newDoc = {
+        //  forventes at vi legger til ting f.eks å sjekke om det er noe i eller blabla
+        name: inputNameEl.value,
+        genre: inputGenreEl.value,
+        artist: inputCreatorEl.value,
+        releaseDate: inputDateEL.value,
+        createdAt: serverTimestamp()
+    }
+    await addDoc(collection(db, "listify"), newDoc);
+    
+    showList();
+}
 
