@@ -1,19 +1,54 @@
+body{
+    margin: 0;
+}
 .wrapper{
     display: flex;
-    flex-direction: row;
-    /* min-height: auto; */
-    /* align-items: stretch; */
+    width: 100%;
+    height: 100vh;
 }
 .profile{
-    flex-grow: 1;
-    background-color: antiquewhite;
+    background-color: #613DC1;
+    width: 25%;
 }
 .talkbox{
-    flex-grow: 2;
-    background-color: darkblue;
-    min-height:100vh;
+    background-color: #0f182d;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 .dice{
-    flex-grow: 1;
-    background-color: darkgoldenrod;
+    background-color: #2C0735;
+    width: 25%;
+}
+
+.container{
+    flex: 0.9;
+    align-content: space-evenly;
+    gap:1vh;
+    overflow-y: scroll;
+    margin-bottom: 2vh;
+    margin-top: 3.3vh;
+}
+
+.textInput{
+    margin-top: 2vh;
+    position: absolute;
+    top: 90%;
+}
+
+#inputChat{
+    margin-left: 0.5vw;
+}
+
+
+.object{
+    background-color: #14213D;
+    color:floralwhite;
+    margin: 1vh;
+}
+
+.blurred {
+    filter: blur(5px);
+    pointer-events: none; /* Prevent clicks */
+    user-select: none;    /* Prevent text selection */
 }

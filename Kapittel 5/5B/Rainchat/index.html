@@ -7,29 +7,47 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <nav id="usernameCreate">
+        <!-- <h2>Create Username:</h2>
+        <input type="text" class="usernameInput" placeholder="Jøhrn Doe">
+        <button id="usernameButton"> Select Username </button>
+        <p style="color: red;"><strong>This can not be changed later!</strong></p> -->
+    </nav>
     <div class="wrapper">
         <div class="profile">
             <div class="data">
-                <div class="pfp"><img src="" alt=""></div>
-                <div class="uid">a</div>
+                <div class="uid">
+                    <div id="signInContainer">
+                        <!-- TEST AUTH -->
+                         <label for="signInEmail">E-mail:</label>
+                         <input type="email" id="signInEmail" placeholder="Bigdihh@gmail.com"> <br>
+                         <label for="signInPassword">Password:</label>
+                         <input type="password" id="signInPassword" placeholder="******">
+                         <button id="signIn">Sign-in</button>
+                    </div> <hr>
+                    <div id="registerContainer">
+                        <!-- TEST AUTH -->
+                         <label for="registerEmail">E-mail:</label>
+                         <input type="email" id="registerEmail" placeholder="Bigdihh@gmail.com"> <br>
+                         <label for="registerPassword">Password:</label>
+                         <input type="password" id="registerPassword" placeholder="******">
+                         <button id="register">Register</button>
+                    </div>
+                </div>
                 <div class="rolls">a</div>
                 <div class="six"></div>
             </div>
         </div>
         <div class="talkbox">
-            <h1>b</h1>
-            <div class="chat"></div>
-            <!-- Overskrift -->
             <div class="container"> 
                 <!-- Fylles med chats.. ? -->
             </div>
-            <div class="type"> 
-                <input type="text" name="" id="inputText" placeholder="Type here..."> <button class="send">></button>
+            <div class="textInput"> 
+                <input type="text" name="" id="inputChat" placeholder="Type here..." size="60"> <button id="send">></button>
                 <!-- Hvor man skriver inn meldinger -->
             </div>
         </div>
         <div class="dice">
-            <h1>c</h1>
             <div class="title"></div>
             <div class="die"></div>
             <div class="roll"></div>
