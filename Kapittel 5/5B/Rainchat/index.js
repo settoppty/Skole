@@ -74,7 +74,7 @@ async function signInUser(){
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
-        username = uid
+        userCredential.user.uid = uid
         // ...
     })
     .catch((error) => {
@@ -139,7 +139,7 @@ async function showChat(){
     
     // Henter objekter
     //  spør databasen om dette
-    let chatQuery = query(collection(db, "chat"));
+    let chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
     let chatDocs = await getDocs(chatQuery);
     
         // finne collection id. den som blir autoGenerert
@@ -171,11 +171,38 @@ async function showChat(){
         starBtn.className = "btn star";
         //starBtn.addEventListener("click", starIncrease);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
 
+        let deleteBtnEl = document.createElement("button");
+        deleteBtnEl.innerText = "slett";
+        deleteBtnEl.addEventListener("click", async ()=>{
+            await deleteDoc(doc(db, "chat", docInfo.id));
+            showChat();
+        });
+
+        let updateBtnEl = document.createElement("button");
+                updateBtnEl.innerText = "Edit";
+                updateBtnEl.addEventListener("click", async ()=>{
+                    msgEl.contentEditable = true;
+                    msgEl.classList.toggle("editable");
+        
+                    updateBtnEl.addEventListener("click", async ()=>{
+                        let updatedDoc = {
+                            msg: msgEl.innerText,
+                        }
+        
+                        // HVORDAN FINNER DU ID til DOKUMENTET!?!?!
+                        await updateDoc(doc(db, "chat", docInfo.id), updatedDoc);
+                        showChat();
+                    })
+                })
+
+
         
 
         divEl.appendChild(uidEl);
         divEl.appendChild(msgEl);
         divEl.appendChild(timeEl);
+        divEl.appendChild(deleteBtnEl);
+        divEl.appendChild(updateBtnEl);
         divEl.appendChild(starBtn);
 
     containerEl.appendChild(divEl);
@@ -184,17 +211,6 @@ async function showChat(){
     })
     
 }
-compareDate();
-function compareDate(a,b){
-    if (a.timeEl > b.timeEl) {
-    return 1;
-  } else if (a.date < b.date) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
-
 
 sendBtn.addEventListener("click", addToDatabase);
 async function addToDatabase(){
