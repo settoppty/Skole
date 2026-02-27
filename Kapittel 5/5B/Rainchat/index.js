@@ -1,43 +1,64 @@
-
-// PARSE BRUKERNAVN I LOCALSTORAGE OG BRUK DET FOR USERNAME. DROPP AUTH, DISPLAY: HIDDEN PÅ ALT FØR DETTE ER GJORT.
-// RUN CHECK OM MAN HAR LOCAL ELLER IKKE, HVIS JA HOPP RETT I SIDEN.
-
-
-
-
 //#region imports and connection to firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, getDocs, query, orderBy, where, serverTimestamp} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+  getDocs,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+  onSnapshot,
+  increment,
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  updateProfile,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDDqt-mGu0NEBt3GRZgBoJnsNg4mdCMCtg",
-    authDomain: "prosjekt4-ac475.firebaseapp.com",
-    projectId: "prosjekt4-ac475",
-    storageBucket: "prosjekt4-ac475.firebasestorage.app",
-    messagingSenderId: "410896235066",
-    appId: "1:410896235066:web:37f3c5e34820d1fb779303"
-  };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDDqt-mGu0NEBt3GRZgBoJnsNg4mdCMCtg",
+  authDomain: "prosjekt4-ac475.firebaseapp.com",
+  projectId: "prosjekt4-ac475",
+  storageBucket: "prosjekt4-ac475.firebasestorage.app",
+  messagingSenderId: "410896235066",
+  appId: "1:410896235066:web:37f3c5e34820d1fb779303",
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
+//#endregion
 
-
+//#region queryselectors
 //   LEGG TIL BUTTONELEMENTS
 
 // DISSE MÅ VÆRE OPPE FOR Å DEFINERE CONTAINER SLIK AT SHOWLIST KAN FUNGERE
 // Inputs:
-const inputTextEl = document.querySelector("#inputText");
+const inputTextEl = document.querySelector(".inputText");
 // Containers:
 const containerEl = document.querySelector(".container");
+const lockScreenEl = document.querySelector("#lockScreen");
+const UserStatusEl = document.querySelector(".userID");
+const loggedOutEl = document.querySelector(".loggedOut");
+const loggedInEl = document.querySelector(".loggedIn");
 // Buttons:
 const chatInput = document.querySelector("#inputChat");
 const sendBtn = document.querySelector("#send");
+const logOutBtn = document.querySelector("#logoutBtn");
 
 // AUTHKNAPPER
 const signInEmailInputEl = document.querySelector("#signInEmail");
@@ -45,195 +66,216 @@ const signInPasswordInputEl = document.querySelector("#signInPassword");
 const signInBtn = document.querySelector("#signIn");
 const registerEmailInputEl = document.querySelector("#registerEmail");
 const registerPasswordInputEl = document.querySelector("#registerPassword");
+const registerUIDInputEl = document.querySelector("#registerUID");
 const registerBtn = document.querySelector("#register");
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+//#endregion
 
 const auth = getAuth();
 
-registerBtn.addEventListener("click", registerNewUser)
-async function registerNewUser(){
-    let email = registerEmailInputEl.value
-    let password = registerPasswordInputEl.value
-    if(!email || !password){
-        alert("Du må fylle feltene");
-        return;
-    }
-
-    createUserWithEmailAndPassword(auth, email, password)
+logOutBtn.addEventListener("click", logout);
+async function logout() {
+  signOut(auth);
+  alert("Successfully logged out");
 }
 
+registerBtn.addEventListener("click", registerNewUser);
+async function registerNewUser() {
+  let email = registerEmailInputEl.value;
+  let password = registerPasswordInputEl.value;
+  let username = registerUIDInputEl.value;
+  if (!email || !password || !username) {
+    alert("Du må fylle feltene");
+    return;
+  }
 
+  try {
+    // Create user
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
 
+    // Set displayName as username
+    await updateProfile(userCredential.user, { displayName: username });
 
-signInBtn.addEventListener("click", signInUser)
-async function signInUser(){
-        let email = signInEmailInputEl.value
-    let password = signInPasswordInputEl.value
+    alert("User registered successfully!");
+    location.reload();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+}
 
-    signInWithEmailAndPassword(auth, email, password)
+signInBtn.addEventListener("click", signInUser);
+async function signInUser() {
+  let email = signInEmailInputEl.value;
+  let password = signInPasswordInputEl.value;
+
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // Signed in 
-        userCredential.user.uid = uid
-        // ...
+      // Signed in
+      console.log("Velkommen " + userCredential.user.displayName);
+      alert("Logged in as " + userCredential.user.displayName);
+      // ...
     })
     .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log (errorCode + ": " + errorMessage)
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + ": " + errorMessage);
     });
-    
-    if(!email || !password){
-        alert("Du må fylle feltene");
-        return;
-    }
+
+  if (!email || !password) {
+    alert("Du må fylle feltene");
+    return;
+  }
 }
 
+// Henter objekter
+//  spør databasen om dette
+let chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
 
-//#region Username
-//#endRegion
+//  const chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
 
+onSnapshot(chatQuery, (snapshot) => {
+  containerEl.innerHTML = "";
 
-// // #region Blur
-// let isBlurred = false; // Track toggle state
+  // finne collection id. den som blir autoGenerert
+  snapshot.forEach((docInfo) => {
+    console.log(docInfo.id);
+    let o = docInfo.data();
 
-// function blurBg(selector) {
-//     const target = document.querySelector(selector);
-//     if (!target) {
-//         console.error("Element not found");
-//         return;
-//     }
+    // For hver sang i chat, lag en div og fyll den med info
 
-//     document.querySelectorAll("body *").forEach(el => {
-//         if (el !== target && !target.contains(el) && el.id !== "usernameButton") {
-//             el.classList.add("blurred");
-//         }
-//     });
-// }
-// document.getElementById("usernameButton").addEventListener('click', () => {
-//     if (!isBlurred) {
-//         blurEverythingExcept('#usernameCreate');
-//         document.getElementById("usernameButton").textContent = 'Unblur Everything';
-//     } else {
-//         unblurEverything();
-//         document.getElementById("usernameButton").textContent = 'Blur Everything Except #myDiv';
-//     }
-//     isBlurred = !isBlurred;
-// });
+    let divEl = document.createElement("div");
+    divEl.className = "object";
 
-// function unblurEverything() {
-//     document.querySelectorAll('.blurred').forEach(el => {
-//         el.classList.remove('blurred');
-//     });
-// }
-    
-// blurBg("#usernameCreate");
+    let uidEl = document.createElement("div");
+    uidEl.innerHTML = o.uid;
+    uidEl.className = "uid";
 
-// #endregion
+    let msgEl = document.createElement("div");
+    msgEl.innerHTML = o.msg;
+    msgEl.className = "msg";
 
+    let timeEl = document.createElement("div");
+    let date = new Date(o.time.seconds * 1000);
+    console.log(date);
+    timeEl.innerHTML = date.toDateString();
+    timeEl.className = "time";
 
-showChat();
-async function showChat(){
-    containerEl.innerHTML = "";
+    let starBtn = document.createElement("button");
+    starBtn.innerHTML = "★" + o.stars;
+    starBtn.className = "btn star";
+    starBtn.addEventListener("click", async () => {
+      const currentUser = auth.currentUser;
 
-    
-    // Henter objekter
-    //  spør databasen om dette
-    let chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
-    let chatDocs = await getDocs(chatQuery);
-    
-        // finne collection id. den som blir autoGenerert
-        chatDocs.forEach((docInfo)=>{
-        console.log(docInfo.id);              
-        let o = docInfo.data();
-        
-        // For hver sang i chat, lag en div og fyll den med info
+      if (currentUser.displayName === o.uid) {
+        alert("Grådig?");
+        return;
+      }
+      await updateDoc(doc(db, "chat", docInfo.id), {
+        stars: increment(1),
+      });
+    });
 
-        let divEl = document.createElement("div");
-        divEl.className = "object"
+    let deleteBtnEl = document.createElement("button");
+    deleteBtnEl.innerText = "slett";
+    deleteBtnEl.addEventListener("click", async () => {
+      const currentUser = auth.currentUser;
 
-        let uidEl = document.createElement("div");
-        uidEl.innerHTML = o.uid;
-        uidEl.className = "uid";
-        
-        let msgEl = document.createElement("div");
-        msgEl.innerHTML = o.msg
-        msgEl.className = "msg";
-        
-        let timeEl = document.createElement("div");
-        let date = new Date(o.time.seconds * 1000)
-        console.log(date);
-        timeEl.innerHTML = date.toDateString()
-        timeEl.className = "time";
+      if (currentUser !== o.uid) {
+        alert("Alle har ytringsfrihet! Ikke bare du");
+        return;
+      }
+      await deleteDoc(doc(db, "chat", docInfo.id));
+    });
 
-        let starBtn = document.createElement("button");
-        starBtn.innerHTML = "★" + o.stars;
-        starBtn.className = "btn star";
-        //starBtn.addEventListener("click", starIncrease);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
+    let updateBtnEl = document.createElement("button");
+    updateBtnEl.innerText = "Edit";
 
-        let deleteBtnEl = document.createElement("button");
-        deleteBtnEl.innerText = "slett";
-        deleteBtnEl.addEventListener("click", async ()=>{
-            await deleteDoc(doc(db, "chat", docInfo.id));
-            showChat();
-        });
+    let isEditing = false;
+    updateBtnEl.addEventListener("click", async () => {
+      const currentUser = auth.currentUser;
 
-        let updateBtnEl = document.createElement("button");
-                updateBtnEl.innerText = "Edit";
-                updateBtnEl.addEventListener("click", async ()=>{
-                    msgEl.contentEditable = true;
-                    msgEl.classList.toggle("editable");
-        
-                    updateBtnEl.addEventListener("click", async ()=>{
-                        let updatedDoc = {
-                            msg: msgEl.innerText,
-                        }
-        
-                        // HVORDAN FINNER DU ID til DOKUMENTET!?!?!
-                        await updateDoc(doc(db, "chat", docInfo.id), updatedDoc);
-                        showChat();
-                    })
-                })
+      if (currentUser.displayName !== o.uid) {
+        alert("Hva enn du prøver å få dem til å si... ikke gjør det");
+        return;
+      }
+      if (!isEditing) {
+        //  Redigerings mode
+        msgEl.contentEditable = true;
+        msgEl.classList.add("editable");
+        updateBtnEl.innerText = "Save";
+        isEditing = true;
+      } else {
+        // ikke redigeringsmode
+        let updatedDoc = {
+          msg: msgEl.innerText,
+        };
 
+        // HVORDAN FINNER DU ID til DOKUMENTET!?!?!
+        await updateDoc(doc(db, "chat", docInfo.id), updatedDoc);
+        msgEl.contentEditable = false;
+        updateBtnEl.innerText = "Edit";
+        msgEl.classList.remove("editable");
+        isEditing = false;
+      }
+    });
 
-        
-
-        divEl.appendChild(uidEl);
-        divEl.appendChild(msgEl);
-        divEl.appendChild(timeEl);
-        divEl.appendChild(deleteBtnEl);
-        divEl.appendChild(updateBtnEl);
-        divEl.appendChild(starBtn);
+    divEl.appendChild(uidEl);
+    divEl.appendChild(msgEl);
+    divEl.appendChild(timeEl);
+    divEl.appendChild(deleteBtnEl);
+    divEl.appendChild(updateBtnEl);
+    divEl.appendChild(starBtn);
 
     containerEl.appendChild(divEl);
-
-    
-    })
-    
-}
+  });
+  containerEl.scrollTop = containerEl.scrollHeight;
+});
 
 sendBtn.addEventListener("click", addToDatabase);
-async function addToDatabase(){
+async function addToDatabase() {
+  // Sjekk om det i det hele tatt er en logget inn bruker
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Du må være logget inn for å chatte!");
+    return;
+  } else if (chatInput.value.trim() === "") {
+    alert("You must write something");
+    return;
+  } else {
     let newDoc = {
-        //  forventes at vi legger til ting f.eks å sjekke om det er noe i eller blabla
-        msg: inputChat.value,
-        stars: 0,
-        time: serverTimestamp(),
-        uid: "a",
-    }
+      //  forventes at vi legger til ting f.eks å sjekke om det er noe i eller blabla
+      msg: chatInput.value,
+      stars: 0,
+      time: serverTimestamp(),
+      uid: user.displayName || "Anonymous",
+    };
+    chatInput.value = "";
+    console.log("Sendt melding!");
     await addDoc(collection(db, "chat"), newDoc);
-    console.log("her")
-    showChat();
+  }
 }
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
-    const uid = user.uid;
-    // ...
+    // User logged in
+    containerEl.classList.remove("blurred");
+    inputTextEl.style.display = "block";
+    UserStatusEl.innerText = "Logged in as: " + user.displayName;
+    lockScreenEl.style.display = "none";
+    loggedOutEl.style.display = "none";
+    loggedInEl.style.display = "block";
   } else {
     // User is signed out
-    // ...
+    containerEl.classList.add("blurred");
+    inputTextEl.style.display = "none";
+    UserStatusEl.innerText = "Not logged in";
+    lockScreenEl.style.display = "block";
+    loggedOutEl.style.display = "block";
+    loggedInEl.style.display = "none";
   }
 });

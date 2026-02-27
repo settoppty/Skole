@@ -1,66 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RainChat</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-      <style>
-    .editable{
-      border: 2px solid red;
-    }
-  </style>
-    <nav id="usernameCreate">
-        <!-- <h2>Create Username:</h2>
-        <input type="text" class="usernameInput" placeholder="Jøhrn Doe">
-        <button id="usernameButton"> Select Username </button>
-        <p style="color: red;"><strong>This can not be changed later!</strong></p> -->
-    </nav>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <style>
+      .editable {
+        background-color: #13293d;
+        border: 1px solid floralwhite;
+        border-radius: 0.5vh;
+        padding: 1%;
+        font-family: "Jersey 15";
+      }
+    </style>
     <div class="wrapper">
-        <div class="profile">
-            <div class="data">
-                <div class="uid">
-                    <div id="signInContainer">
-                        <!-- TEST AUTH -->
-                         <label for="signInEmail">E-mail:</label>
-                         <input type="email" id="signInEmail" placeholder="Bigdihh@gmail.com"> <br>
-                         <label for="signInPassword">Password:</label>
-                         <input type="password" id="signInPassword" placeholder="******">
-                         <button id="signIn">Sign-in</button>
-                    </div> <hr>
-                    <div id="registerContainer">
-                        <!-- TEST AUTH -->
-                         <label for="registerEmail">E-mail:</label>
-                         <input type="email" id="registerEmail" placeholder="Bigdihh@gmail.com"> <br>
-                         <label for="registerPassword">Password:</label>
-                         <input type="password" id="registerPassword" placeholder="******">
-                         <button id="register">Register</button>
-                    </div>
-                </div>
-                <div class="rolls">a</div>
-                <div class="six"></div>
+      <div class="profile">
+        <div class="data">
+          <div class="loggedOut">
+            <h1 class="stor">LOGG IN/REGISTRER</h1>
+            <div id="signInContainer">
+              <label for="signInEmail">E-mail:</label>
+              <input
+                type="email"
+                id="signInEmail"
+                placeholder="Bigdihh@gmail.com"
+              />
+              <br />
+              <label for="signInPassword">Password:</label>
+              <input type="password" id="signInPassword" placeholder="******" />
+              <button id="signIn">Sign-in</button>
             </div>
-        </div>
-        <div class="talkbox">
-            <div class="container"> 
-                <!-- Fylles med chats.. ? -->
+            <hr />
+            <div id="registerContainer">
+              <label for="registerEmail">E-mail:</label>
+              <input
+                type="email"
+                id="registerEmail"
+                placeholder="Bigdihh@gmail.com"
+              />
+              <br />
+              <label for="registerUID">Select Username:</label>
+              <input type="text" placeholder="username" id="registerUID" />
+              <label for="registerPassword">Password:</label>
+              <input
+                type="password"
+                id="registerPassword"
+                placeholder="******"
+              />
+              <button id="register">Register</button>
             </div>
-            <div class="textInput"> 
-                <input type="text" name="" id="inputChat" placeholder="Type here..." size="60"> <button id="send">></button>
-                <!-- Hvor man skriver inn meldinger -->
+          </div>
+          <div class="loggedIn">
+            <h2 class="userID">Error no user logged in</h2>
+            <div id="logout">
+              <button id="logoutBtn">Log out</button>
             </div>
+          </div>
+          <div class="rolls"></div>
+          <div class="six"></div>
         </div>
-        <div class="dice">
-            <div class="title"></div>
-            <div class="die"></div>
-            <div class="roll"></div>
-            <div class="customize"></div>
+        <div class="logo">
+          <img src="bilder\rainchatLogo.png" alt="RainChatLogo" />
         </div>
+      </div>
+      <div class="talkbox">
+        <div id="lockScreen">
+          <p>You must be logged in to chat!</p>
+        </div>
+        <div class="container">
+          <!-- Fylles med chats.. ? -->
+        </div>
+        <div class="inputText">
+          <input
+            type="text"
+            name=""
+            id="inputChat"
+            placeholder="Type here..."
+            size="60"
+          />
+          <button id="send">></button>
+          <!-- Hvor man skriver inn meldinger -->
+        </div>
+      </div>
+      <div class="dice">
+        <div class="title"></div>
+        <div class="die"></div>
+        <div class="roll"></div>
+        <div class="customize"></div>
+      </div>
     </div>
 
-    <link rel="stylesheet" href="index.css">
-</body>
-<script src="index.js" type="module"></script>
+    <link rel="stylesheet" href="index.css" />
+  </body>
+  <script src="index.js" type="module"></script>
 </html>
