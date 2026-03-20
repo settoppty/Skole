@@ -1,0 +1,39 @@
+body {
+  box-sizing: border-box;
+}
+
+nav {
+  grid-area: nav;
+  padding: 0.5%;
+  background-color: skyblue;
+  border-radius: 5%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav"
+    "grid pic pic";
+}
+
+.grid {
+  grid-area: grid;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pic {
+  grid-area: pic;
+  width: 100%;
+  height: auto;
+}
+
+.pic img {
+  width: 100%;
+  height: auto;
+}

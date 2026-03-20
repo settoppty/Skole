@@ -184,7 +184,7 @@ onSnapshot(chatQuery, (snapshot) => {
     deleteBtnEl.addEventListener("click", async () => {
       const currentUser = auth.currentUser;
 
-      if (currentUser !== o.uid) {
+      if (currentUser.displayName !== o.uid) {
         alert("Alle har ytringsfrihet! Ikke bare du");
         return;
       }
