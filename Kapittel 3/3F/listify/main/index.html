@@ -1,88 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listify</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <nav>
-        <div class="logo"><p>Listify</p></div>
+      <div class="logo"><p>Listify</p></div>
     </nav>
     <div class="wrapper">
+      <div class="sidebar">
+        <fieldset>
+          <legend>Add new song:</legend>
+          <label for="inputName">Navn:</label> <br />
+          <input type="text" id="inputName" /> <br />
 
-         <div class="sidebar">
-                <fieldset>
-                    <legend>Add new song:</legend>
-                <label for="inputName">Navn:</label> <br>
-                <input type="text" id="inputName"> <br>
-                
-                <label for="inputArtist">Artist:</label> <br>
-                <input type="text" id="inputArtist"> <br>
-                
-                <label for="inputDate">Date:</label> <br>
-                <input type="date" id="inputDate"> <br>
-                
-                <label>Sjanger:</label> <br>
-                <select id="inputGenre"> 
-                    <option value="Pop">Pop</option>
-                    <option value="Hip-Hop">Hip-Hop</option>
-                    <option value="Rock">Rock</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Classic">Classic</option>
-                    <option value="Electronic">Electronic</option>
-                </select>
-                
-                <button class="btn" id="add">Add song</button>
-            </fieldset>
+          <label for="inputArtist">Artist:</label> <br />
+          <input type="text" id="inputArtist" /> <br />
+
+          <label for="inputDate">Date:</label> <br />
+          <input type="date" id="inputDate" /> <br />
+
+          <label>Sjanger:</label> <br />
+          <select id="inputGenre">
+            <option value="Pop">Pop</option>
+            <option value="Hip-Hop">Hip-Hop</option>
+            <option value="Rock">Rock</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Classic">Classic</option>
+            <option value="Electronic">Electronic</option>
+          </select>
+
+          <button class="btn" id="add">Add song</button>
+        </fieldset>
+      </div>
+      <div class="left">
+        <h4>Show Genre:</h4>
+        <div class="album" id="songs">
+          <button value="all" id="all">Show all songs</button>
         </div>
-        <div class="left">
-            <h4>Show Genre:</h4>
-            <div class="album" id="songs">
-                    <button value="all" id="all">Show all songs</button>
-            </div>
-            <div class="album" id="Hip-Hop">
-                    <button value="Hip-Hop" id="Hip-Hop">Show Hip-Hop</button>
-            </div>
-            <div class="album" id="Pop">
-                     <button value="Pop" id="Pop">Show Pop</button>
-            </div>
-            <div class="album" id="Rock">
-                    <button value="Rock" id="Rock">Show Rock</button>
-            </div>
-             <div class="album" id="Jazz">
-                    <button value="Jazz" id="Jazz">Show Jazz</button> 
-            </div>               
-             <div class="album" id="Classic">
-                    <button value="Classic" id="Classic">Show Classical</button>
-            </div>
-             <div class="album" id="Electronic">
-                    <button value="Electronic" id="Electronic">Show Eletronic</button>
-
-            </div>
-         </div>
-         <div class="main">
-                 <div class="top">
-                <label for="sort">Sort by:</label>
-                <select name="" id="sort">
-                    <option value="id">ID</option>
-                    <option value="a-z">Alphabetical</option>
-                    <option value="artist">Artist</option>
-                    <option value="date">Date</option>
-                </select>
-            </div>
-                <div class="categories space">
-                    <div class="nummer">#</div>
-                    <div class="tittel">Title</div>
-                    <div class="artist">Artist</div>
-                    <div>Release date</div>
-                </div> <hr>
-                <div class="container">
-                    <!-- skal fylles inn av java -->
-                </div>
-            </div>
+        <div class="album" id="Hip-Hop">
+          <button value="Hip-Hop" id="Hip-Hop">Show Hip-Hop</button>
+        </div>
+        <div class="album" id="Pop">
+          <button value="Pop" id="Pop">Show Pop</button>
+        </div>
+        <div class="album" id="Rock">
+          <button value="Rock" id="Rock">Show Rock</button>
+        </div>
+        <div class="album" id="Jazz">
+          <button value="Jazz" id="Jazz">Show Jazz</button>
+        </div>
+        <div class="album" id="Classic">
+          <button value="Classic" id="Classic">Show Classical</button>
+        </div>
+        <div class="album" id="Electronic">
+          <button value="Electronic" id="Electronic">Show Eletronic</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="top">
+          <label for="sort">Sort by:</label>
+          <select name="" id="sort">
+            <option value="id">ID</option>
+            <option value="a-z">Alphabetical</option>
+            <option value="artist">Artist</option>
+            <option value="date">Date</option>
+          </select>
+        </div>
+        <div class="categories space">
+          <div class="nummer">#</div>
+          <div class="tittel">Title</div>
+          <div class="artist">Artist</div>
+          <div>Release date</div>
+        </div>
+        <hr />
+        <div class="container">
+          <!-- skal fylles inn av java -->
+        </div>
+      </div>
     </div>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

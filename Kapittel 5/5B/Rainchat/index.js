@@ -135,8 +135,6 @@ async function signInUser() {
 //  spør databasen om dette
 let chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
 
-//  const chatQuery = query(collection(db, "chat"), orderBy("time", "asc"));
-
 onSnapshot(chatQuery, (snapshot) => {
   containerEl.innerHTML = "";
 

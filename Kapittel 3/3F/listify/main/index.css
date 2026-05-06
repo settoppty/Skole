@@ -1,225 +1,237 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
 
 /* responsiv til 1020pxw */
 
-
-hr{
-    width: max-content;
-    border: none;
-    border-top: 2px solid #535353;
-    width: 100%;
-margin-left: 0;
+hr {
+  width: max-content;
+  border: none;
+  border-top: 2px solid #535353;
+  width: 100%;
+  margin-left: 0;
 }
 
 @keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.btn{
-    transition: .07s;
-     background-color: #121212;
-    color: #29fe74;
-
+.btn {
+  transition: 0.07s;
+  background-color: #121212;
+  color: #29fe74;
 }
-.btn:hover{
-
-    background-color: #535353;
-    color: aliceblue;
-    cursor: pointer;
+.btn:hover {
+  background-color: #535353;
+  color: aliceblue;
+  cursor: pointer;
 }
 
-.delete:hover{
-        animation: shake 0.5s ease-in-out;
-        background-color:red;
-        color:#121212;
+.delete:hover {
+  animation: shake 0.5s ease-in-out;
+  background-color: red;
+  color: #121212;
 }
 
-body{
-    background-color: #121212;
-    height: 100%;
-    overflow: auto;
+body {
+  background-color: #121212;
+  height: 100%;
+  overflow: auto;
 }
 
-.wrapper{
-    display: grid;
-    grid-template-areas: 
-    "left main sidebar";
-     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: auto;
-    row-gap: 3vh;
-    column-gap: 1vw;
-    margin: auto;
-    margin-top: 3vh;
-    color: aliceblue;
-    font-family: "Gabarito", sans-serif;
-    height: 100vh;
+.wrapper {
+  display: grid;
+  grid-template-areas: "left main sidebar";
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 3vh;
+  column-gap: 1vw;
+  margin: auto;
+  margin-top: 3vh;
+  color: aliceblue;
+  font-family: "Gabarito", sans-serif;
+  height: 100vh;
 }
 
-.main{
-    grid-area: main;
+.main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  gap: 0.5em;
+  background-color: #212121;
+  border-radius: 1vh;
+  padding: 3vh;
+  overflow-y: auto;
+}
+.sang.hiphop > div {
+  color: cornflowerblue;
+}
+.sang.pop > div {
+  color: orchid;
+}
+.sang.rock > div {
+  color: red;
+}
+.sang.jazz > div {
+  color: yellow;
+}
+.sang.classic > div {
+  color: aliceblue;
+}
+.sang.electronic > div {
+  color: cyan;
+}
+
+.container > div {
+  margin-bottom: 0.7vh;
+}
+
+.container > .sang:nth-child(even) {
+  background-color: #53535326;
+  border-radius: 0.4vh;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  gap: 1vh;
+  padding-top: 1vh;
+  align-self: start;
+}
+
+#Hip-Hop {
+  color: cornflowerblue;
+}
+#Pop {
+  color: orchid;
+}
+#Rock {
+  color: red;
+}
+#Jazz {
+  color: yellow;
+}
+#Classic {
+  color: aliceblue;
+}
+#Electronic {
+  color: cyan;
+}
+button {
+  transition: 0.07s;
+  background-color: #121212;
+  color: #29fe74;
+}
+button:hover {
+  background-color: #535353;
+  color: aliceblue;
+  cursor: pointer;
+}
+.logo {
+  margin: auto;
+  text-align: center;
+  padding: 1vh;
+  color: #1db954;
+  font-weight: 900;
+  font-family: "Gabarito", sans-serif;
+  font-size: xx-large;
+  transition: 0.5s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.left {
+  padding-top: 3vh;
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border-radius: 1vh;
+  background-color: #212121;
+  max-height: min-content;
+  overflow-y: auto;
+  align-self: start;
+  padding-bottom: 3vh;
+}
+
+#inputGenre,
+#inputName,
+#inputArtist,
+#sort {
+  cursor: pointer;
+}
+
+.show {
+  cursor: pointer;
+}
+
+.add {
+  display: none;
+}
+.space {
+  display: flex;
+}
+
+.space div {
+  width: 10em;
+}
+
+.top {
+  grid-area: top;
+}
+
+@media (max-width: 1020px) {
+  .wrapper {
     display: flex;
     flex-direction: column;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    gap: 0.5em;
-    background-color: #212121;
-    border-radius: 1vh;
-    padding: 3vh;
-    overflow-y: auto;
-}
-.sang.hiphop > div{ color:cornflowerblue; }
-.sang.pop > div{ color: orchid; }
-.sang.rock > div{ color: red; }
-.sang.jazz > div{ color: yellow; }
-.sang.classic > div{ color: aliceblue; }
-.sang.electronic > div{ color: cyan; }
-
-.container > div{
-    margin-bottom: 0.7vh;
-}
-
-.container > .sang:nth-child(even){
-    background-color: #53535326;
-    border-radius: 0.4vh;
-}
-
-.sidebar{
-    grid-area: sidebar;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    row-gap: 0vw;
+    column-gap: 0vh;
+  }
+  .left {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 0%;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    white-space: nowrap;
+    max-height: 4.5rem;
+    max-width: 100vw;
     align-items: baseline;
-    gap: 1vh;
-    padding-top: 1vh;
-    align-self: start;
-}
-
-#Hip-Hop{
-    color: cornflowerblue;
-}
-#Pop{
-    color: orchid;
-}
-#Rock{
-    color: red ;
-}
-#Jazz{
-    color: yellow;
-}
-#Classic{
-    color: aliceblue;
-}
-#Electronic{
-    color: cyan;
-}
-button{
-    transition: .07s;
-    background-color: #121212;
-    color: #29fe74;
-}
-button:hover{
-        background-color: #535353;
-    color: aliceblue;
-    cursor: pointer;
-}
-.logo{
-    margin: auto;
+    height: auto;
+  }
+  .album {
     text-align: center;
-    padding: 1vh;
-    color: #1DB954;
-    font-weight: 900;
-    font-family: "Gabarito", sans-serif;
-    font-size: xx-large; 
-    transition: 0.5s;
-}
-
-.logo:hover{
-    transform: scale(1.1);
-}
-
-
-
-.left{
-    padding-top: 3vh;
-    grid-area: left;
-    display: flex;
-    flex-direction: column;
-    gap: 4vh;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    border-radius: 1vh;
-    background-color: #212121;
-    max-height:min-content;
-    overflow-y: auto;
-    align-self: start;
-    padding-bottom: 3vh;
-}
-
-#inputGenre, #inputName, #inputArtist, #sort{
-    cursor: pointer;
-}
-
-.show{
-    cursor: pointer;
-
-}
-
-
-.add{
-    display: none;
-}
-.space{
-    display: flex;
-}
-
-.space div{
-    width: 10em;
-}
-
-.top{
-    grid-area: top;
-}
-
-
-@media(max-width: 1020px){
-
-        .wrapper{
-            display: flex;
-            flex-direction: column;
-            row-gap: 0vw;
-            column-gap: 0vh;
-        }
-        .left{
-            display: flex;
-            flex-direction: row;
-            overflow-x:auto;
-            overflow-y: hidden;
-            border-radius: 0%;
-            border-top-left-radius: 1vh;
-            border-top-right-radius: 1vh;
-            white-space: nowrap;
-            max-height: 4.5rem;
-            max-width: 100vw;
-            align-items: baseline;
-            height: auto;
-        }
-        .album{
-            text-align: center;
-            flex: 0 0 auto;
-
-        }
-        .sidebar{
-            align-self: center;
-        }
-        .main{
-            border-radius: 0%;
-        }
+    flex: 0 0 auto;
+  }
+  .sidebar {
+    align-self: center;
+  }
+  .main {
+    border-radius: 0%;
+  }
 }

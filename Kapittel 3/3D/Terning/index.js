@@ -1,5 +1,3 @@
-
-
 let tNumber = Math.ceil(Math.random() * 6);
 
 // Henter elementene fra HTML fila
@@ -11,10 +9,8 @@ const guessOutputEl = document.getElementById("outputGuess");
 guessButtonEl.addEventListener("click", guessNumber);
 
 // Lager funksjonen som kjøres av guessButtonEl
-function tNumber(){
-    let guess = Number(guessInputEl.value);
-    let output = "";
-    guessOutputEl.innerHTML += output + "<br>";
+function tNumber() {
+  let guess = Number(guessInputEl.value);
+  let output = "";
+  guessOutputEl.innerHTML += output + "<br>";
 }
-
-

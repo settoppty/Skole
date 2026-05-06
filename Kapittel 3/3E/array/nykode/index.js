@@ -1,69 +1,74 @@
-
 //concat
-const array1 = ['a', 'b', 'c'];
-const array2 = ['d', 'e', 'f'];
+const array1 = ["a", "b", "c"];
+const array2 = ["d", "e", "f"];
 const array3 = array1.concat(array2);
-console.log('concat():', array3);
+console.log("concat():", array3);
 
 // join()
-const elements = ['Fire', 'Air', 'Water'];
-console.log('join()', elements.join('-'));
+const elements = ["Fire", "Air", "Water"];
+console.log("join()", elements.join("-"));
 
 // slice()
-const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
-console.log('slice():', animals.slice(2));
+const animals = ["ant", "bison", "camel", "duck", "elephant"];
+console.log("slice():", animals.slice(2));
 
 // array iterator methods
 
 //  forEach()
-const items = ['item1', 'item2', 'item3'];
-items.forEach(item => {
-    console.log('forEach():', item);
+const items = ["item1", "item2", "item3"];
+items.forEach((item) => {
+  console.log("forEach():", item);
 });
 
 // map()
-const numbersMap =[1, 4, 9];
+const numbersMap = [1, 4, 9];
 const roots = numbersMap.map(Math.sqrt);
-console.log('map():', roots);
+console.log("map():", roots);
 
 // filter
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.filter(word => word.length > 6);
-console.log('filter():', result);
+const words = [
+  "spray",
+  "limit",
+  "elite",
+  "exuberant",
+  "destruction",
+  "present",
+];
+const result = words.filter((word) => word.length > 6);
+console.log("filter():", result);
 
 // reduce()
 const numsReduce = [1, 2, 3, 4];
-const sum = numsReduce.reduce((accumulator, currentValue) => accumulator + currentValue);
-console.log('reduce():', sum);
-
+const sum = numsReduce.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+);
+console.log("reduce():", sum);
 
 //  Array Mutator Methods
 
 //push() setter inn på slutten
-const fruits = ['banana', 'pear', 'apple'];
-fruits.push('mango');
-console.log('push()', fruits);
+const fruits = ["banana", "pear", "apple"];
+fruits.push("mango");
+console.log("push()", fruits);
 
 //pop fjerner det siste elementet
-const plants = ['fern', 'palm', 'cactus']
+const plants = ["fern", "palm", "cactus"];
 plants.pop();
-console.log('pop():', plants)
- 
+console.log("pop():", plants);
+
 //shift  fjerner det første elementet
-const games = ['soccer', 'basketball', 'hockey']
-games.shift()
-console.log('shift():', games)
- 
- 
+const games = ["soccer", "basketball", "hockey"];
+games.shift();
+console.log("shift():", games);
+
 //unshift  legger til ellementet i () i staren av array
 const numbers = [1, 2, 3];
 numbers.unshift(0);
-console.log('unshift():', numbers)
- 
- 
-// splice  
-const months = ['Jan', 'March', 'Aprli', 'June']
-months.splice(1, 0, 'Feb')
-console.log('spilce() add:', months)
-months.splice(4, 1, 'May');
-console.log('splice () replace:', months)
+console.log("unshift():", numbers);
+
+// splice
+const months = ["Jan", "March", "Aprli", "June"];
+months.splice(1, 0, "Feb");
+console.log("spilce() add:", months);
+months.splice(4, 1, "May");
+console.log("splice () replace:", months);

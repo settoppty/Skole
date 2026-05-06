@@ -1,35 +1,59 @@
 //#region imports and connection to firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, where, serverTimestamp} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCpDOb6-bOCRdIUX_KS0kYFUTiVaWmHaGo",
-    authDomain: "herregud.firebaseapp.com",
-    projectId: "herregud",
-    storageBucket: "herregud.firebasestorage.app",
-    messagingSenderId: "1032091752368",
-    appId: "1:1032091752368:web:cc2474622c4e048c926875"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCpDOb6-bOCRdIUX_KS0kYFUTiVaWmHaGo",
+  authDomain: "herregud.firebaseapp.com",
+  projectId: "herregud",
+  storageBucket: "herregud.firebasestorage.app",
+  messagingSenderId: "1032091752368",
+  appId: "1:1032091752368:web:cc2474622c4e048c926875",
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //#endregion
 
-
 let list;
-if(localStorage.info){
+if (localStorage.info) {
   list = JSON.parse(localStorage.info);
-}
-else{
+} else {
   // Aldri vært på denne siden før
   list = [
-     {id: 1, name: "ChugJugg", creator:"Dinero", genre:"Hip-Hop", date:"2008-12-07"},
-     {id: 2, name: "Musik Non Stop", creator: "kent", genre:"Rock", date:"1999-11-15"},
-     {id: 3, name: "Subwoofer Lullaby", creator: "C418", genre: "Electronic", date: "2011-03-04"},
-         ];
+    {
+      id: 1,
+      name: "ChugJugg",
+      creator: "Dinero",
+      genre: "Hip-Hop",
+      date: "2008-12-07",
+    },
+    {
+      id: 2,
+      name: "Musik Non Stop",
+      creator: "kent",
+      genre: "Rock",
+      date: "1999-11-15",
+    },
+    {
+      id: 3,
+      name: "Subwoofer Lullaby",
+      creator: "C418",
+      genre: "Electronic",
+      date: "2011-03-04",
+    },
+  ];
   localStorage.info = JSON.stringify(list);
 }
-
 
 // DISSE MÅ VÆRE OPPE FOR Å DEFINERE CONTAINER SLIK AT SHOWLIST KAN FUNGERE
 // Inputs:
@@ -47,71 +71,69 @@ const genreSelectEl = document.querySelectorAll(".album");
 for (let i = 0; i < genreSelectEl.length; i++) {
   let button = genreSelectEl[i].querySelector("button");
   let genre = button.value;
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     selectedGenre = genre;
     showList();
   });
 }
 
- let selectedGenre = "all";
- 
+let selectedGenre = "all";
+
 showList();
-async function showList(){
-    containerEl.innerHTML = "";
+async function showList() {
+  containerEl.innerHTML = "";
 
-    for (let i = 0; i < list.length; i++) {
-        // Henter objekter
-        //  spør databasen om dette
-        let listQuery = query(collection(db, "listify"));
-        let listDocs = await getDocs(listQuery);
-        
-         // finne collection id. den som blir autoGenerert
-          listDocs.forEach((docInfo)=>{
-            console.log(docInfo.id);              
-            let o = docInfo.data();
-          
-        // let o = list[i];
-        let genreClass = o.genre.toLowerCase().replace(/[^a-z]/g, ""); // Finn sjangeren og gjør det brukbart i js når den skal legge det til som class
-        if (selectedGenre == "all" || o.genre == selectedGenre) {
-          // For hver sang i list, lag en div og fyll den med info
-          let divEl = document.createElement("div");
-          divEl.className = "sang space " + genreClass;
+  for (let i = 0; i < list.length; i++) {
+    // Henter objekter
+    //  spør databasen om dette
+    let listQuery = query(collection(db, "listify"));
+    let listDocs = await getDocs(listQuery);
 
-          let idEl = document.createElement("div");
-          idEl.innerHTML = o.id;
-          idEl.className = "id";
+    // finne collection id. den som blir autoGenerert
+    listDocs.forEach((docInfo) => {
+      console.log(docInfo.id);
+      let o = docInfo.data();
 
-          let nameEl = document.createElement("div");
-          nameEl.innerHTML = o.name
-          nameEl.className = "name";
-          
-          let creatorEl = document.createElement("div");
-          creatorEl.innerHTML = o.creator
-          creatorEl.className = "creator";
+      // let o = list[i];
+      let genreClass = o.genre.toLowerCase().replace(/[^a-z]/g, ""); // Finn sjangeren og gjør det brukbart i js når den skal legge det til som class
+      if (selectedGenre == "all" || o.genre == selectedGenre) {
+        // For hver sang i list, lag en div og fyll den med info
+        let divEl = document.createElement("div");
+        divEl.className = "sang space " + genreClass;
 
-          let dateEl = document.createElement("div");
-          dateEl.innerHTML = o.date
-          dateEl.className = "date";
+        let idEl = document.createElement("div");
+        idEl.innerHTML = o.id;
+        idEl.className = "id";
 
-          let deleteBtn = document.createElement("button");
-          deleteBtn.innerHTML = "X";
-          deleteBtn.className = "btn delete";
-          deleteBtn.id = i;   // Bruker id'en til å identifisere hvilken knapp det trykkes på!
-          deleteBtn.addEventListener("click", removeFromList);   // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
+        let nameEl = document.createElement("div");
+        nameEl.innerHTML = o.name;
+        nameEl.className = "name";
 
+        let creatorEl = document.createElement("div");
+        creatorEl.innerHTML = o.creator;
+        creatorEl.className = "creator";
 
+        let dateEl = document.createElement("div");
+        dateEl.innerHTML = o.date;
+        dateEl.className = "date";
 
-          divEl.appendChild(idEl);
-          divEl.appendChild(nameEl);
-          divEl.appendChild(creatorEl);
-          divEl.appendChild(dateEl);
-          divEl.appendChild(deleteBtn);
+        let deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "X";
+        deleteBtn.className = "btn delete";
+        deleteBtn.id = i; // Bruker id'en til å identifisere hvilken knapp det trykkes på!
+        deleteBtn.addEventListener("click", removeFromList); // Viktig å gjøre at knappen vi lagde faktisk kaller funksjonen.
+
+        divEl.appendChild(idEl);
+        divEl.appendChild(nameEl);
+        divEl.appendChild(creatorEl);
+        divEl.appendChild(dateEl);
+        divEl.appendChild(deleteBtn);
 
         containerEl.appendChild(divEl);
-        }})
-    }
+      }
+    });
+  }
 }
-
 
 // function addToList(){
 //     let addName = inputNameEl.value;
@@ -130,42 +152,36 @@ async function showList(){
 // }
 // addToListEl.addEventListener("click", addToList);
 
-
-
 // SortByName
-sortSelectEl.addEventListener("change", sortCheck)
-function sortCheck(event){
-    // EVENT er en variabel som blir sendt med alle eventListeners
-    // De inneholder masse info inkl. hva som skjedde på event.target
-    // event.target gir html-elementet som ble endret. Select/Input elementer har noe som heter value
-    let sortType = event.target.value;
+sortSelectEl.addEventListener("change", sortCheck);
+function sortCheck(event) {
+  // EVENT er en variabel som blir sendt med alle eventListeners
+  // De inneholder masse info inkl. hva som skjedde på event.target
+  // event.target gir html-elementet som ble endret. Select/Input elementer har noe som heter value
+  let sortType = event.target.value;
 
-    if (sortType == "id"){
-        list.sort(compareID);
-    }
-    else if (sortType == "a-z"){
-        list.sort(compareName);
-    }
-    else if (sortType == "artist"){
-        list.sort(compareArtist);
-        console.log("Sorter på artist:", list);
-    }
-    else if (sortType == "date"){
-      list.sort(compareDate);
-    }
-    else{
-        console.error("Can't sort by " + sortType);
-    }
-    
-    showList()
+  if (sortType == "id") {
+    list.sort(compareID);
+  } else if (sortType == "a-z") {
+    list.sort(compareName);
+  } else if (sortType == "artist") {
+    list.sort(compareArtist);
+    console.log("Sorter på artist:", list);
+  } else if (sortType == "date") {
+    list.sort(compareDate);
+  } else {
+    console.error("Can't sort by " + sortType);
+  }
 
-    // Bare for å se
-    console.log("------------EVENT-----------");
-    console.log(event)
-    console.log("---------FERDIG-------------");
+  showList();
+
+  // Bare for å se
+  console.log("------------EVENT-----------");
+  console.log(event);
+  console.log("---------FERDIG-------------");
 }
-function compareName(a,b){
-      if (a.name > b.name) {
+function compareName(a, b) {
+  if (a.name > b.name) {
     return 1;
   } else if (a.name < b.name) {
     return -1;
@@ -174,11 +190,11 @@ function compareName(a,b){
   }
 }
 
-function compareID(a,b){
-    return a.id - b.id;
+function compareID(a, b) {
+  return a.id - b.id;
 }
-function compareArtist(a,b){
-          if (a.creator > b.creator) {
+function compareArtist(a, b) {
+  if (a.creator > b.creator) {
     return 1;
   } else if (a.creator < b.creator) {
     return -1;
@@ -186,43 +202,37 @@ function compareArtist(a,b){
     return 0;
   }
 }
-function compareDate(a,b){
-    if (a.date > b.date) {
+function compareDate(a, b) {
+  if (a.date > b.date) {
     return 1;
   } else if (a.date < b.date) {
     return -1;
   } else {
     return 0;
   }
-};
-// RemoveFromList
-function removeFromList(e){
-    let index = e.target.id;
-    list.splice(index, 1);
-    localStorage.info = JSON.stringify(list);
-    showList()
-    
-
-
 }
-  showList()
-
-
+// RemoveFromList
+function removeFromList(e) {
+  let index = e.target.id;
+  list.splice(index, 1);
+  localStorage.info = JSON.stringify(list);
+  showList();
+}
+showList();
 
 // FIREBASE
 
 addToListEl.addEventListener("click", addToDatabase);
-async function addToDatabase(){
-    let newDoc = {
-        //  forventes at vi legger til ting f.eks å sjekke om det er noe i eller blabla
-        name: inputNameEl.value,
-        genre: inputGenreEl.value,
-        artist: inputCreatorEl.value,
-        releaseDate: inputDateEL.value,
-        createdAt: serverTimestamp()
-    }
-    await addDoc(collection(db, "listify"), newDoc);
-    
-    showList();
-}
+async function addToDatabase() {
+  let newDoc = {
+    //  forventes at vi legger til ting f.eks å sjekke om det er noe i eller blabla
+    name: inputNameEl.value,
+    genre: inputGenreEl.value,
+    artist: inputCreatorEl.value,
+    releaseDate: inputDateEL.value,
+    createdAt: serverTimestamp(),
+  };
+  await addDoc(collection(db, "listify"), newDoc);
 
+  showList();
+}

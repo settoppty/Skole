@@ -1,5 +1,3 @@
-
-
 //#region Task 1
 // I denne oppgaven skal du endre linje 25+
 
@@ -18,27 +16,25 @@ const ageOutputEl = document.getElementById("outputAge");
 ageButtonEl.addEventListener("click", CheckAge);
 
 // Lager funksjonen som kjøres av ageButtonEl
-function CheckAge(){
-    age = Number(ageInputEl.value);
-    output = "";
-    let rest = age
-    // IF-STATEMENTS HER:
-    if(age < 13){
-        rest = 13 - rest
-        output = "Du er yn, det er " +rest+ " år til du blir tenåring";
-    }
-    
-    if(age > 13 && age < 19){
-        output = "Du er tenåring!";
-    }
-    if(age>19){
-        output = "Du er velvokst";
-    }
+function CheckAge() {
+  age = Number(ageInputEl.value);
+  output = "";
+  let rest = age;
+  // IF-STATEMENTS HER:
+  if (age < 13) {
+    rest = 13 - rest;
+    output = "Du er yn, det er " + rest + " år til du blir tenåring";
+  }
 
+  if (age > 13 && age < 19) {
+    output = "Du er tenåring!";
+  }
+  if (age > 19) {
+    output = "Du er velvokst";
+  }
 
-
-    // Legger til vår output tekst i slutten av p-elementet vårt.
-    ageOutputEl.innerHTML += output + "<br>";
+  // Legger til vår output tekst i slutten av p-elementet vårt.
+  ageOutputEl.innerHTML += output + "<br>";
 }
 //#endregion
 
@@ -59,26 +55,23 @@ const guessOutputEl = document.getElementById("outputGuess");
 guessButtonEl.addEventListener("click", guessNumber);
 
 // Lager funksjonen som kjøres av guessButtonEl
-function guessNumber(){
-    let guess = Number(guessInputEl.value);
-    let output = "";
+function guessNumber() {
+  let guess = Number(guessInputEl.value);
+  let output = "";
 
-    // IF-STATEMENTS HER:
-    if(guess > secretNumber){
-        output = "Ro ned";
-    }
-    if(guess < secretNumber){
-        output = "Ok gi litt gass a";
-    }
-    if(guess == secretNumber){
-        output = "Digg";}
-    
-    
+  // IF-STATEMENTS HER:
+  if (guess > secretNumber) {
+    output = "Ro ned";
+  }
+  if (guess < secretNumber) {
+    output = "Ok gi litt gass a";
+  }
+  if (guess == secretNumber) {
+    output = "Digg";
+  }
 
-    // Legger til vår output tekst i slutten av p-elementet vårt.
-    guessOutputEl.innerHTML += output + "<br>";
+  // Legger til vår output tekst i slutten av p-elementet vårt.
+  guessOutputEl.innerHTML += output + "<br>";
 }
 
 //#endregion
-
-

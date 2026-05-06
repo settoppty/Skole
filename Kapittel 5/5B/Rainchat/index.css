@@ -1,138 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jersey+10&family=Jersey+15&family=Jersey+25&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jersey+10&family=Jersey+15&family=Jersey+25&display=swap");
 
-body{
-    margin: 0;
-    font-family: "Jersey 25";
-}
-
-.stor{
-    font-family: "Jersey 25";
-}
-.wrapper{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-.profile{
-    background-color: #18435a;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2vh 0;
-    box-sizing: border-box;
-    color: floralwhite;
+body {
+  margin: 0;
+  font-family: "Jersey 25";
 }
 
-.userID{
-    font-family: "Jersey 15";
-    letter-spacing: 1px;
+.stor {
+  font-family: "Jersey 25";
 }
-#logoutBtn{
-    background-color: rgb(170, 19, 19);
-    color: floralwhite;
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
-.talkbox{
-    background-color: #18435a;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+.profile {
+  background-color: #18435a;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2vh 0;
+  box-sizing: border-box;
+  color: floralwhite;
+}
+
+.userID {
+  font-family: "Jersey 15";
+  letter-spacing: 1px;
+}
+#logoutBtn {
+  background-color: rgb(170, 19, 19);
+  color: floralwhite;
+}
+.talkbox {
+  background-color: #18435a;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .talkbox button {
-    background-color: #205b5f;
-    color: floralwhite
+  background-color: #205b5f;
+  color: floralwhite;
 }
 
-.uid{
-    color: #4295da;
+.uid {
+  color: #4295da;
 }
-.msg{
-    font-family: "Jersey 15";
-    font-size: larger;
-}
-
-.time{
-    font-size: smaller;
-    color: #2a628f;
-}
-.dice{
-    background-color: #18435a;
-    width: 25%;
+.msg {
+  font-family: "Jersey 15";
+  font-size: larger;
 }
 
-
-.die img{
-    width: 10vh;
-    height: auto;
+.time {
+  font-size: smaller;
+  color: #2a628f;
+}
+.dice {
+  background-color: #18435a;
+  width: 25%;
 }
 
-.container{
-    flex: 0.9;
-    align-content: space-evenly;
-    gap:1vh;
-    overflow-y: scroll;
-    margin-bottom: 2vh;
-    margin-top: 3.3vh;
+.die img {
+  width: 10vh;
+  height: auto;
 }
 
-.textInput{
-    margin-top: 2vh;
-    position: absolute;
-    top: 90%;
+.container {
+  flex: 0.9;
+  align-content: space-evenly;
+  gap: 1vh;
+  overflow-y: scroll;
+  margin-bottom: 2vh;
+  margin-top: 3.3vh;
 }
 
-#inputChat{
-    margin-left: 0.5vw;
+.textInput {
+  margin-top: 2vh;
+  position: absolute;
+  top: 90%;
 }
 
-#send{ 
-    background-color: #16324f;
+#inputChat {
+  margin-left: 0.5vw;
 }
 
-.object{
-    background-color: #16324f;
-    color:floralwhite;
-    margin: 0.8vh;
-    padding: 1vh;
-    border-radius: 1vh;
+#send {
+  background-color: #16324f;
+}
+
+.object {
+  background-color: #16324f;
+  color: floralwhite;
+  margin: 0.8vh;
+  padding: 1vh;
+  border-radius: 1vh;
 }
 
 .blurred {
-    filter: blur(5px);
-    pointer-events: none; /* Prevent clicks */
-    user-select: none;    /* Prevent text selection */
+  filter: blur(5px);
+  pointer-events: none; /* Prevent clicks */
+  user-select: none; /* Prevent text selection */
 }
 
-#lockScreen{
-    color: whitesmoke;
-    background-color: #16324f;
-    border: 1vh solid #13293d;
-    box-sizing: border-box;
-    text-align: center;
-    position: absolute;
-    top:45vh;
-    right: 39vw;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    padding: 1vh;
-    border-radius: 1.8vh;
-    font-family: "Jersey 15", sans-serif;
-    size-adjust:500px;
-    width: 25%;
-    font-size: x-large;
-    
+#lockScreen {
+  color: whitesmoke;
+  background-color: #16324f;
+  border: 1vh solid #13293d;
+  box-sizing: border-box;
+  text-align: center;
+  position: absolute;
+  top: 45vh;
+  right: 39vw;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 1vh;
+  border-radius: 1.8vh;
+  font-family: "Jersey 15", sans-serif;
+  size-adjust: 500px;
+  width: 25%;
+  font-size: x-large;
 }
 
-.logo{
-    width: 80%;
-    display: flex;
-    justify-content: center;
+.logo {
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
-.logo img{
-    width: 50vh ;
-    height: auto;
+.logo img {
+  width: 50vh;
+  height: auto;
 }

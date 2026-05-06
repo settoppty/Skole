@@ -1,0 +1,169 @@
+body {
+  margin: 40px auto;
+  line-height: 1.6;
+  font-size: 1.125rem;
+  color: #463f36;
+  background-color: #ede7d7;
+  padding: 0 10px;
+  box-sizing: content-box;
+  /* TRENGER VEL IKKE ALLE DISSE FOR HOVEDIDÉEN */
+  overflow-x: hidden;
+}
+
+.forsvinn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+.intro {
+  transition: 2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.introButtons {
+  transition: opacity 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1vh;
+}
+
+.milkbtn {
+  all: unset;
+  cursor: pointer;
+  border: solid #7b3f00;
+  padding: 0.1vh 0.5vw;
+  border-radius: 1rem;
+  transition: 0.175s;
+}
+
+.milkbtn:hover {
+  background-color: #7b3f00;
+  color: #ede7d7;
+}
+/* FIKSE AT ARROW FORSVINNER OGSÅ OG AT DE ER LINA OPP PÅ SIDEN OVER HVERANDRE + FIKS TIMER */
+
+.glass {
+  width: 100px;
+  height: 150px;
+  border: 4px solid #333;
+  border-top: none; /* Open top */
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  overflow: hidden; /* Keeps the water inside the glass curves */
+  margin: 20px auto;
+  margin-top: 30vh;
+  transition: 2s;
+}
+
+.moveDown {
+  transform: translateY(35vh);
+  scale: calc(1 * 0.9);
+}
+
+#milk {
+  width: 100%;
+  height: 0; /* Start empty */
+  background-color: #7b3f00;
+  position: absolute;
+  bottom: 0;
+  transition: height 2s ease-in-out;
+  overflow: visible;
+}
+
+#milk.fyllOpp {
+  height: 85%;
+}
+
+#milk::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -55%;
+  width: 210%;
+  height: 200px;
+  background-color: rgba(
+    123,
+    63,
+    0,
+    0.5
+  ); /* Litt lysere/gjennomsiktig sjokolade */
+  border-radius: 38%;
+  animation: bolge 10s infinite linear;
+  z-index: 1;
+  opacity: 0;
+  transition: 3.75s linear;
+}
+
+#milk.fyllOpp::before {
+  opacity: 1;
+  transition: 0.55;
+}
+
+.ripple {
+  position: absolute;
+  top: -10px; /* plasserer den på toppen av væsken */
+  left: -50%;
+  width: 200%; /* Bredere enn glasset for å skjule kantene når den roterer */
+  height: 200px;
+  background-color: #7b3f00; /* Samme farge som melken */
+  border-radius: 42%; /* Gjør den litt rund/bølgeaktig */
+  animation: bolge 7s infinite linear;
+  opacity: 1.01;
+  z-index: 2;
+  opacity: 0;
+  transition: 3.75s;
+}
+
+/* Vis bølgen bare når melken fylles */
+#milk.fyllOpp .ripple {
+  opacity: 1;
+  transition: 0.5s;
+}
+@keyframes bolge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-top: 13vh;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.quiz {
+  position: absolute;
+  right: -30vw;
+  /* top: 50%; */
+  bottom: 80%;
+  transition: 1s ease-out;
+  display: flex;
+  flex-direction: row;
+}
+
+.question {
+  display: flex;
+  flex-direction: row;
+}
+
+.enterRight {
+  right: 50%;
+}

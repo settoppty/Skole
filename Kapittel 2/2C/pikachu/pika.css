@@ -1,44 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-
-body{
-    background-color: yellow;
-    font-family: "Press Start 2P", system-ui;
+body {
+  background-color: yellow;
+  font-family: "Press Start 2P", system-ui;
 }
 
-.wrapper{
-    width:min-content;
-    margin: auto;
-    color: blue;
-    size: x-large;
-    
+.wrapper {
+  width: min-content;
+  margin: auto;
+  color: blue;
+  size: x-large;
 }
 
-.overskrift{
-    color: darkblue;
-    size-adjust: 2em;
+.overskrift {
+  color: darkblue;
+  size-adjust: 2em;
 }
 
-.overstor{
-    color: blue;
-    width: fit-content;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+.overstor {
+  color: blue;
+  width: fit-content;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-#heroImage{
- width: 100vw;
- height: 60vh;
- background-image: 
- url("heroimage.png"),
-   repeating-linear-gradient(75deg,
-            #3D60FF, 
-            #3D60FF 20px,
-            #FFD557 20px,
-            #FFD557 40px);
- background-repeat: no-repeat;
- background-size: contain;
- 
+#heroImage {
+  width: 100vw;
+  height: 60vh;
+  background-image:
+    url("heroimage.png"),
+    repeating-linear-gradient(
+      75deg,
+      #3d60ff,
+      #3d60ff 20px,
+      #ffd557 20px,
+      #ffd557 40px
+    );
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-

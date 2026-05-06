@@ -1,0 +1,56 @@
+.ripple {
+  position: absolute;
+  top: -10px; /* plasserer den på toppen av væsken */
+  left: -50%;
+  width: 200%; /* Bredere enn glasset for å skjule kantene når den roterer */
+  height: 200px;
+  background-color: #7b3f00; /* Samme farge som melken */
+  border-radius: 42%; /* Gjør den litt rund/bølgeaktig */
+  animation: bolge 7s infinite linear;
+  opacity: 0.99;
+  z-index: 2;
+}
+#milk {
+  width: 100%;
+  height: 0; /* Start empty */
+  background-color: #7b3f00;
+  position: absolute;
+  bottom: 0;
+  transition: height 2s ease-in-out;
+  overflow: visible;
+}
+#milk::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -55%;
+  width: 210%;
+  height: 200px;
+  background-color: rgba(
+    123,
+    63,
+    0,
+    0.5
+  ); /* Litt lysere/gjennomsiktig sjokolade */
+  border-radius: 38%;
+  animation: bolge 10s infinite linear;
+  z-index: 1;
+}
+
+@keyframes bolge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.glass {
+  width: 100px;
+  height: 150px;
+  border-top: none; /* Open top */
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  /* overflow: hidden; */
+  margin: 20px auto;
+}

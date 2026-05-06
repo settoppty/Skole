@@ -1,16 +1,23 @@
 //#region imports and connection to firebase
-import { initializeApp } from 
-"https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, where, serverTimestamp} from 
-"https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCoRMIqB6ER-nEOSmcmKlwVkgElWpnk1vk",
-    authDomain: "it1database-91a5f.firebaseapp.com",
-    projectId: "it1database-91a5f",
-    storageBucket: "it1database-91a5f.firebasestorage.app",
-    messagingSenderId: "1032871459206",
-    appId: "1:1032871459206:web:8f6ab0ff18d9a04e9a5407"
+  apiKey: "AIzaSyCoRMIqB6ER-nEOSmcmKlwVkgElWpnk1vk",
+  authDomain: "it1database-91a5f.firebaseapp.com",
+  projectId: "it1database-91a5f",
+  storageBucket: "it1database-91a5f.firebasestorage.app",
+  messagingSenderId: "1032871459206",
+  appId: "1:1032871459206:web:8f6ab0ff18d9a04e9a5407",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -30,44 +37,39 @@ let viktighetInputEl = document.querySelector("#viktighet");
 let ferdigInputEl = document.querySelector("#ferdig");
 //#endregion
 
+async function renderList() {
+  // Fjerner det som er der!
+  itemsContainerEl.innerHTML = "";
 
+  let listQuery = query(collection(db, "jegGidderIkkeLageEnCollection"));
+  let listDocs = await getDocs(listQuery);
 
-async function renderList(){
-    // Fjerner det som er der!
-    itemsContainerEl.innerHTML = "";
+  listDocs.forEach((docInfo) => {
+    let d = docInfo.data();
 
-    let listQuery = query(collection(db, "jegGidderIkkeLageEnCollection"));
-    let listDocs  = await getDocs(listQuery);
+    console.log(d);
+    let liEl = document.createElement("li");
+    liEl.innerText = d.text + " (Viktighet: " + d.importance + ")";
 
-    listDocs.forEach((docInfo)=>{
-        let d = docInfo.data();
-
-        console.log(d);
-        let liEl = document.createElement("li");
-        liEl.innerText = d.text + " (Viktighet: " + d.importance + ")"
-
-        itemsContainerEl.appendChild(liEl);
-    });
+    itemsContainerEl.appendChild(liEl);
+  });
 }
 renderList();
 
-
-
 addBtnEl.addEventListener("click", addToDatabase);
 
-async function addToDatabase(){
-    let newDoc = {
-        text: husketekstInputEl.value,
-        importance: viktighetInputEl.value,
-        category: kategoriInputEl.value,
-        createdAt: serverTimestamp()
-    }
+async function addToDatabase() {
+  let newDoc = {
+    text: husketekstInputEl.value,
+    importance: viktighetInputEl.value,
+    category: kategoriInputEl.value,
+    createdAt: serverTimestamp(),
+  };
 
-    await addDoc(collection(db, "jegGidderIkkeLageEnCollection"), newDoc);
+  await addDoc(collection(db, "jegGidderIkkeLageEnCollection"), newDoc);
 
-    renderList();
+  renderList();
 }
-
 
 //#region AUTH
 // Signin
@@ -78,65 +80,53 @@ signInBtnEl.addEventListener("click", signInUser);
 
 // Register
 const registerEmailInputEl = document.querySelector("#registerEmailInput");
-const registerPasswordInputEl = document.querySelector("#registerPasswordInput");
+const registerPasswordInputEl = document.querySelector(
+  "#registerPasswordInput",
+);
 const registerBtnEl = document.querySelector("#register");
 registerBtnEl.addEventListener("click", registerNewUser);
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
 const auth = getAuth();
 
-function registerNewUser(){
-    let email = registerEmailInputEl.value;
-    let password  = registerPasswordInputEl.value;
+function registerNewUser() {
+  let email = registerEmailInputEl.value;
+  let password = registerPasswordInputEl.value;
 
-    // Makes sure we have both email and password
-    if(!email || !password){
-        alert("Du må ha både epost og passord!");
-        return;
-    }
+  // Makes sure we have both email and password
+  if (!email || !password) {
+    alert("Du må ha både epost og passord!");
+    return;
+  }
 
-    createUserWithEmailAndPassword(auth, email, password);
+  createUserWithEmailAndPassword(auth, email, password);
 }
 
-function signInUser(){
-    let email = signInEmailInputEl.value;
-    let password  = signInPasswordInputEl.value;
+function signInUser() {
+  let email = signInEmailInputEl.value;
+  let password = signInPasswordInputEl.value;
 
-    // Makes sure we have both email and password
-    if(!email || !password){
-        alert("Du må ha både epost og passord!");
-        return;
-    }
+  // Makes sure we have both email and password
+  if (!email || !password) {
+    alert("Du må ha både epost og passord!");
+    return;
+  }
 
-    signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // Signed in 
-        window.location = "http://google.com";
+      // Signed in
+      window.location = "http://google.com";
     })
     .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode + ": " + errorMessage);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + ": " + errorMessage);
     });
 }
 
 //#endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
